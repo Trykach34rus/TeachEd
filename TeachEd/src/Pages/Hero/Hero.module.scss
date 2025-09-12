@@ -1,0 +1,62 @@
+.root {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start; // картинка сверху
+	padding: 0 100px; // только горизонтальные паддинги
+	background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+	color: white;
+	gap: 166px;
+
+	.textBlock {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center; // центрируем текст по вертикали относительно картинки
+		max-width: 764px;
+
+		h1 {
+			font-size: 72px;
+			font-weight: 900;
+			line-height: 1.1;
+		}
+	}
+
+	.highlight {
+		border: 4px solid white;
+		padding: 0 8px;
+		border-radius: 6px;
+	}
+
+	.cta {
+		width: 292px;
+		height: 80px;
+		background: linear-gradient(90deg, #ff4081, #ff6699);
+		border: none;
+		border-radius: 16px;
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+		cursor: pointer;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+		opacity: 1;
+		margin-top: 40px;
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	.imageWrapper {
+		width: 762px;
+		height: 1017px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
+		img {
+			width: 762px;
+			height: 1017px;
+			object-fit: cover;
+		}
+	}
+}
