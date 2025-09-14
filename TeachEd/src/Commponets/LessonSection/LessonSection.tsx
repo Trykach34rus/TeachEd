@@ -18,7 +18,7 @@ export default function LessonSection() {
 				</div>
 
 				<div className={st.rightNote}>
-					<img src={MagikStick} alt='Stick' />
+					<img src={MagikStick} alt='Void' />
 					USE AI MAGIC!
 				</div>
 
