@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import logo from '../../assets/TeachEd-Logo (1).svg'
+
 import st from './Header.module.scss'
 
 const navItems = ['Blog', 'Events', 'About us', 'Pricing', 'Contact us']
@@ -20,8 +22,7 @@ export default function Header({}) {
 					</button>
 				))}
 				<div className={st.logo}>
-					<span className={st.logoWhite}>Teach</span>
-					<span className={st.logoPink}>Ed</span>
+					<img src={logo} alt='logo' />
 				</div>
 			</nav>
 			<div className={st.right}>

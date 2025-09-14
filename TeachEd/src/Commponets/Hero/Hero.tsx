@@ -1,11 +1,9 @@
 import catImage from '../../assets/Property 1=Default.png'
-import Header from '../../Commponets/Heder/Header'
 import st from './Hero.module.scss'
 
 export default function Hero() {
 	return (
 		<>
-			<Header />
 			<section className={st.root}>
 				<div className={st.textBlock}>
 					<h1>

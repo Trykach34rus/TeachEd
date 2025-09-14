@@ -6,16 +6,11 @@
 	color: white;
 	background: transparent;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	.logo {
-		font-size: 24px;
-		font-weight: bold;
 
-		.logoWhite {
-			color: white;
-		}
-		.logoPink {
-			color: #ff4081;
-		}
+	.logo {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	.nav {
@@ -85,7 +80,7 @@
 		background: rgba(255, 255, 255, 0.2);
 		border: none;
 		padding: 8px 16px;
-		border-radius: 20px;
+		border-radius: 24px;
 		color: white;
 		cursor: pointer;
 	}
@@ -94,7 +89,7 @@
 		background: #ff4081;
 		border: none;
 		padding: 8px 20px;
-		border-radius: 20px;
+		border-radius: 8px;
 		font-weight: bold;
 		color: white;
 		cursor: pointer;

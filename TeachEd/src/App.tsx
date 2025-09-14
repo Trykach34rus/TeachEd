@@ -1,10 +1,10 @@
 import './App.css'
-import Hero from './Pages/Hero/Hero'
+import Mait from './Pages/Main/Mait'
 
 function App() {
 	return (
 		<>
-			<Hero />
+			<Mait />
 		</>
 	)
 }
