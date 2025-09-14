@@ -33,9 +33,9 @@ export default function LessonSection() {
 					</div>
 				</div>
 			</div>
-			<div className={st.bottomNote}>
+			<button className={st.bottomNote}>
 				<img src={Box} alt='Box' /> ALL IN ONE
-			</div>
+			</button>
 		</section>
 	)
 }
