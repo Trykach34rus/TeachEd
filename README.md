@@ -1,6 +1,6 @@
-# Веб приложение - "Список дел"
+# Веб приложение - "TeachEd"
 
-Список дел - веб приложение, реализованное по техническому заданию для ИТК-академия
+## Описание приложения
 
 ![React](https://img.shields.io/badge/react-18.2.0-blue)
 ![JavaScript](https://img.shields.io/badge/js-es7-yellow)
@@ -9,15 +9,15 @@
 
 ## 🔗 Ссылки
 
-- Прод: `https://trykach34rus.github.io/Todo-List-Redux/`
+- Прод: `https://trykach34rus.github.io/TeachEd/`
 
 ---
 
 ## 🧱 Стэк проекта
 
 - **React**: 18.3.1
-- **Tailwind**: 4.1.12
-- **Redux**: 9.2.0
+- **TypeScript**: ~5.6.2
+- **SASS**: ^1.92.1
 
 ---
 
@@ -34,8 +34,8 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/Trykach34rus/Todo-List-Redux.git
-cd Todo-List-Redux
+git clone https://github.com/Trykach34rus/TeachEd.git
+cd TeachEd
 ```
 
 ### 2. Установка библиотек
