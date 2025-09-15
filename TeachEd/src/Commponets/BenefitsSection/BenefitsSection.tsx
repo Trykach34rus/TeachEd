@@ -79,24 +79,14 @@ const beneSecondData: BenefitItem[] = [
 			'The platform automates the grading process, freeing up valuable time for teachers to interact with students.',
 	},
 	{
-		title: 'Automated Assessment',
-		description:
-			'Easily adapt and reuse materials, providing greater flexibility and longevity to your resources.',
-	},
-	{
 		title: 'Access to Thousands of Ready-made Resources',
 		description:
-			'Access thousands of pre-designed materials, ensuring you never run out of ideas for your next class',
+			'Access thousands of pre-designed materials, ensuring you never run out of ideas for your next class.',
 	},
 	{
 		title: 'Personalized Learning Approach',
 		description:
 			'Create materials that cater to the individual needs and levels of each student, enhancing the learning experience',
-	},
-	{
-		title: 'Challenges in Integrating Technology',
-		description:
-			'Implementing new technologies in the teaching process can be complex and time-consuming.',
 	},
 	{
 		title: 'Easy Technology Integration',
@@ -139,7 +129,7 @@ export default function BenefitsSection({}: Props) {
 					<div className={st.benefitsBlock}>
 						{benefitsData.map((benefit, index) => (
 							<div key={index} className={st.textContainer}>
-								<img src={ChekMark} alt='Check mark' />
+								<img src={ChekMarkOrange} alt='Chek mark' />
 								<div className={st.text}>
 									<p className={st.textTitle}>{benefit.title}</p>
 									<p className={st.textDescription}>{benefit.description}</p>
@@ -155,7 +145,7 @@ export default function BenefitsSection({}: Props) {
 					<div className={st.benefitsBlock}>
 						{beneSecondData.map((benefit, index) => (
 							<div key={index} className={st.textContainer}>
-								<img src={ChekMarkOrange} alt='Chek mark' />
+								<img src={ChekMark} alt='Check mark' />
 								<div className={st.text}>
 									<p className={st.textTitle}>{benefit.title}</p>
 									<p className={st.textDescription}>{benefit.description}</p>

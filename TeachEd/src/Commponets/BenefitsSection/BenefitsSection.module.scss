@@ -1,11 +1,11 @@
 .root {
 	width: 100%;
-	min-height: 100vh;
+	min-height: 130vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: #fff;
+	background-color: #f7f7f7;
 	background-image: linear-gradient(
 			to right,
 			rgba(0, 0, 0, 0.05) 1px,
@@ -70,14 +70,14 @@
 	.textTitle {
 		font-family: Mulish;
 		font-style: SemiBold;
-		font-size: 20px;
+		font-size: 22px;
 		margin: 0;
 	}
 
 	.textDescription {
 		font-family: Mulish;
 		font-style: SemiBold;
-		font-size: 14px;
+		font-size: 16px;
 		margin: 0;
 		line-height: 1.4;
 	}

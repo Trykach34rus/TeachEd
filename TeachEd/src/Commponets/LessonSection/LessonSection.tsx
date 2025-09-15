@@ -1,4 +1,3 @@
-// LessonSection.jsx
 import Box from '../../assets/Box.png'
 import LesonImageBlueColor from '../../assets/LesonImageBlue-color.png'
 import MagikStick from '../../assets/Magik-stick.png'
