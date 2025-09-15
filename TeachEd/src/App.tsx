@@ -1,12 +1,12 @@
-import './App.css'
-import Mait from './Pages/Main/Mait'
+import "./App.css";
+import Mait from "./Pages/Pages/Main";
 
 function App() {
-	return (
-		<>
-			<Mait />
-		</>
-	)
+  return (
+    <>
+      <Main />
+    </>
+  );
 }
 
-export default App
+export default App;
