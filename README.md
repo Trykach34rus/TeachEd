@@ -85,3 +85,9 @@ npm run build
 - 💬 **Telegram**: [@theCodeFather34rus](https://t.me/theCodeFather34rus)
 - 🌐 **GitHub**:
   - [github.com/Trykach34rus](https://github.com/Trykach34rus)
+
+- 👤 **Имя**: Ислам
+- 💼 **Роль**: Backend-разработчик
+- 💬 **Telegram**: [@IslamKertov](https://t.me/IslamKertov)
+- 🌐 **GitHub**:
+  - [github.com/Daemon-Hub](https://github.com/Daemon-Hub)

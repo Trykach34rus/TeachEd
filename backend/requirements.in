@@ -1,0 +1,11 @@
+
+Django
+djangorestframework
+djangorestframework-simplejwt
+gunicorn                  # WSGI HTTP сервер
+#drf-spectacular           # для генерации OpenAPI / Swagger
+#django-filter             # фильтрация данных в DRF
+django-cors-headers       # если нужен CORS
+python-dotenv             # для env-файлов
+psycopg2-binary            # для PostgreSQL
+redis 

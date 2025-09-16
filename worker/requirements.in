@@ -1,0 +1,5 @@
+-r ../requirements.common.in
+
+celery==5.5.3             # стабильная версия Celery 5.5 :contentReference[oaicite:4]{index=4}
+kombu                     # брокер через RabbitMQ
+flower                    # мониторинг задач (опционально)
