@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import arrow from '../../assets/Arrow.svg'
 import latestImage1 from '../../assets/Latest-image-1.png'
+import latestImage2 from '../../assets/Latest-image-2.png'
+import latestImage3 from '../../assets/Latest-image-3.png'
 import userAvatar1 from '../../assets/user-avatar-1.png'
 import st from './Latest.module.scss'
 type Props = {}
@@ -18,7 +20,7 @@ const latestObj = [
 		link: 'Read more',
 	},
 	{
-		img: latestImage1,
+		img: latestImage2,
 		category: 'Category #2',
 		title:
 			'Gamification of online education: turning remote lessons into exciting adventures',
@@ -30,7 +32,7 @@ const latestObj = [
 		link: 'Read more',
 	},
 	{
-		img: latestImage1,
+		img: latestImage3,
 		category: 'Category #3',
 		title: 'Adaptive learning: the new challenge of 2024?',
 		description:
