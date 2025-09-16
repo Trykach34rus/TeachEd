@@ -11,9 +11,11 @@
 		font-family: Geometria;
 		font-style: Heavy;
 		font-size: 48px;
+		font-weight: bold;
 		text-align: center;
 	}
 	.acquaintance {
+		margin-top: 8px;
 		font-family: Mulish;
 		font-style: Regular;
 		font-size: 20px;
@@ -21,58 +23,72 @@
 	.latestContainer {
 		height: 603px;
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		flex-direction: row;
 		gap: 24px;
+		margin-top: 48px;
 	}
 	.card {
 		width: 493px;
-		height: 603px;
+		height: 100%;
 		gap: 16px;
 		opacity: 1;
 		border-radius: 16px;
 		padding: 16px;
 		background-color: #ffffff;
 		display: flex;
-		align-items: center;
 		flex-direction: column;
+		align-items: center;
 	}
 
 	.image {
 		width: 461px;
 		height: 288px;
 		border-radius: 12px;
+		flex-shrink: 0;
 	}
 	.newsContainer {
 		width: 461px;
-		height: 211px;
 		display: flex;
-		align-items: flex-start;
 		flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
 	}
-	.categor {
+	.category {
+		width: 92px;
 		font-family: Mulish;
 		font-weight: 400;
 		font-style: Regular;
 		font-size: 16px;
 		background-color: #f2f2f2;
+		padding: 4px 8px;
+		border-radius: 4px;
+		margin-bottom: 8px;
 	}
 	.title {
 		font-family: Mulish;
 		font-style: Bold;
 		font-size: 24px;
+		margin-bottom: 8px;
+		line-height: 1.2;
 	}
 	.description {
 		font-family: Mulish;
 		font-weight: 400;
 		font-style: Regular;
 		font-size: 16px;
+		line-height: 1.4;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
 	}
 	.userContainer {
 		width: 461px;
 		height: 40px;
 		display: flex;
 		align-items: center;
+		margin-top: auto;
 	}
 	.userName {
 		font-family: Mulish;
@@ -96,8 +112,10 @@
 		font-size: 16px;
 		border: none;
 		color: #707eff;
-		margin-left: 134px;
+		margin-left: auto;
 		display: flex;
 		align-items: center;
+		background: none;
+		cursor: pointer;
 	}
 }
