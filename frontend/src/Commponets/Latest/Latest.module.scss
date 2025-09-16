@@ -1,0 +1,103 @@
+.root {
+	width: 100%;
+	height: 960px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #f7f7f7;
+
+	.latestTitle {
+		font-family: Geometria;
+		font-style: Heavy;
+		font-size: 48px;
+		text-align: center;
+	}
+	.acquaintance {
+		font-family: Mulish;
+		font-style: Regular;
+		font-size: 20px;
+	}
+	.latestContainer {
+		height: 603px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		gap: 24px;
+	}
+	.card {
+		width: 493px;
+		height: 603px;
+		gap: 16px;
+		opacity: 1;
+		border-radius: 16px;
+		padding: 16px;
+		background-color: #ffffff;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.image {
+		width: 461px;
+		height: 288px;
+		border-radius: 12px;
+	}
+	.newsContainer {
+		width: 461px;
+		height: 211px;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	.categor {
+		font-family: Mulish;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 16px;
+		background-color: #f2f2f2;
+	}
+	.title {
+		font-family: Mulish;
+		font-style: Bold;
+		font-size: 24px;
+	}
+	.description {
+		font-family: Mulish;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 16px;
+	}
+	.userContainer {
+		width: 461px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+	}
+	.userName {
+		font-family: Mulish;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 16px;
+		margin-left: 8px;
+	}
+	.createdDate {
+		font-family: Mulish;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 16px;
+		color: #d7d7d7;
+		margin-left: 8px;
+	}
+	.link {
+		font-family: Mulish;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 16px;
+		border: none;
+		color: #707eff;
+		margin-left: 134px;
+		display: flex;
+		align-items: center;
+	}
+}

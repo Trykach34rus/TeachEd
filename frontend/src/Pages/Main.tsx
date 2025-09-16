@@ -1,5 +1,6 @@
 import BenefitsSection from '../Commponets/BenefitsSection/BenefitsSection'
 import Hero from '../Commponets/Hero/Hero'
+import Latest from '../Commponets/Latest/Latest'
 import LessonSection from '../Commponets/LessonSection/LessonSection'
 import TeachingTools from '../Commponets/TeachingTools/TeachingTools'
 
@@ -12,6 +13,7 @@ export default function Main({}: Props) {
 			<LessonSection />
 			<BenefitsSection />
 			<TeachingTools />
+			<Latest />
 		</div>
 	)
 }
