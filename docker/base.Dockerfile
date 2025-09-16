@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir pip-tools
 
 # Можно скопировать общий requirements.common.in
-COPY requirements.common.in /app/
+#COPY ../requirements.common.in /app/
 
 # Собираем общий requirements.txt для всех сервисов (необязательно, можно отдельно для каждого)
 # RUN pip-compile requirements.common.in && pip install --no-cache-dir -r requirements.txt

@@ -1,4 +1,2 @@
--r ../requirements.common.in
-
 ffmpeg-python   # библиотека-обёртка для FFmpeg
 boto3    

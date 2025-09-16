@@ -1,8 +1,8 @@
-FROM TeachEd/docker/base:latest
+FROM teached-base:latest
 
 WORKDIR /app
 
-COPY video-processor/ /app/
+COPY . /app/
 
 RUN pip-compile requirements.in && pip install --no-cache-dir -r requirements.txt
 

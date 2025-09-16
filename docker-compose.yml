@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  redis:
+    image: redis:7
+    container_name: redis
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+
+  worker:
+    build:
+      context: ./worker
+    env_file:
+      - .env
+    depends_on:
+      - backend
+      - redis
+      - rabbitmq
+
+  video-processor:
+    build:
+      context: ./video-processor
+    env_file:
+      - .env
+    depends_on:
+      - backend
+      - redis
+      - rabbitmq
+  
+  nginx:
+    image: nginx:alpine
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  static_volume:
