@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import logoWhite from '../../assets/Second-Logo-Black.svg'
 import logoBlack from '../../assets/TeachEd-Logo (1).svg'
-import logoWhite from '../../assets/TeachEd-Logo-Black.svg'
 import st from './Header.module.scss'
 
 const navItems = [
