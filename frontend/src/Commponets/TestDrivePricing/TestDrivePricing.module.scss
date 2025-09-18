@@ -1,0 +1,102 @@
+.root {
+  padding: 0 5%;
+  background: #f7f7f7;
+
+  .container {
+    padding-top: 263px;
+    padding-bottom: 100px;
+  }
+
+  .driveContent {
+    background: url("../../assets/bg-drive.png"),
+      linear-gradient(100deg, #ed4264, #ffedbc);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+    border-radius: 24px;
+    width: 100%;
+    height: 472px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .driveContent img {
+    width: 546px;
+    height: 273px;
+    margin-top: -195px;
+  }
+
+  .driveContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .driveTitle {
+    display: flex;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    width: 700px;
+    height: 120px;
+  }
+
+  .driveButton {
+    margin-top: 25px;
+    background-color: #ff4785;
+    border-radius: 8px;
+    width: 230px;
+    height: 70px;
+    border: none;
+    padding: 12px 24px;
+  }
+
+  .driveButton span {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 100%;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .driveLinear {
+    margin-top: 50px;
+    background-color: #3284ff;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    transform: rotate(-2deg);
+
+    .driveTrack {
+      display: flex;
+      gap: 48px;
+      animation: marquee 15s linear infinite;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 10%;
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%); // уедет влево на половину длины
+    }
+  }
+}

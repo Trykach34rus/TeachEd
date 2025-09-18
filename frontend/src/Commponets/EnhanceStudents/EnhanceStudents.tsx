@@ -4,11 +4,12 @@ import EnhanceCard2 from "../../assets/enhance-card2.png";
 import EnhanceCard3 from "../../assets/enhance-card3.png";
 import EnhanceCard4 from "../../assets/enhance-card4.png";
 import EnhanceCard5 from "../../assets/enhance-card5.png";
+import bg from "../../assets/background-enhance.png";
 
 export default function EnhanceStudents() {
   return (
     <>
-      <section className={st.root}>
+      <section className={st.root} style={{ backgroundImage: `url(${bg})` }}>
         <div className={st.container}>
           <div className={st.enhanceTitle}>
             <p>
