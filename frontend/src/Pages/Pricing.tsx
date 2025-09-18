@@ -2,6 +2,7 @@ import HeroPricing from "../Commponets/HeroPricing/HeroPricing";
 import FeaturesPricing from "../Commponets/FeaturesPricing/FeaturesPricing";
 import EnhanceStudents from "../Commponets/EnhanceStudents/EnhanceStudents";
 import TestDrivePricing from "../Commponets/TestDrivePricing/TestDrivePricing";
+import Footer from "../Commponets/Footer/Footer";
 
 type Props = {};
 
@@ -12,6 +13,7 @@ export default function Pricing({}: Props) {
       <FeaturesPricing />
       <EnhanceStudents />
       <TestDrivePricing />
+      <Footer />
     </div>
   );
 }
