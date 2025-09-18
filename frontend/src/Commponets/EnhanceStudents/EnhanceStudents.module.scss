@@ -26,11 +26,11 @@
 
   .enhanceBody {
     max-width: 1528px;
-
+    flex-wrap: wrap;
     margin: 0 auto;
     margin-top: 48px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 24px;
     align-items: center;
     flex-wrap: wrap;
