@@ -5,7 +5,7 @@ import logoBlack from '../../assets/TeachEd-Logo (1).svg'
 import st from './Header.module.scss'
 
 const navItems = [
-	{ path: '/home', label: 'Home' },
+	{ path: '/', label: 'Home' },
 	{ path: '/blog', label: 'Blog' },
 	{ path: '/events', label: 'Events' },
 	{ path: '/about', label: 'About us' },
