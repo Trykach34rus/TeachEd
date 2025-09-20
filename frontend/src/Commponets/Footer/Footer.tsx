@@ -5,6 +5,7 @@ import bg from "../../assets/background-enhance.png";
 import { useNavigate } from "react-router-dom";
 
 const navItems = [
+  { path: '/home', label: 'Home' }
   { path: "/blog", label: "Blog" },
   { path: "/events", label: "Events" },
   { path: "/about", label: "About us" },
