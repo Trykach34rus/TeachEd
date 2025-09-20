@@ -6,6 +6,8 @@ import Header from '../Commponets/Heder/Header'
 import Hero from '../Commponets/Hero/Hero'
 import Latest from '../Commponets/Latest/Latest'
 import LessonSection from '../Commponets/LessonSection/LessonSection'
+import MainPricing from '../Commponets/MainPricing/MainPricing'
+import MainVideos from '../Commponets/MainVideos/MainVideos'
 import TeachingJourney from '../Commponets/TeachingJourney/TeachingJourney'
 import TeachingTools from '../Commponets/TeachingTools/TeachingTools'
 import TestDrivePricing from '../Commponets/TestDrivePricing/TestDrivePricing'
@@ -24,6 +26,9 @@ export default function Main({}: Props) {
 			<TeachingJourney />
 			<EnhanceStudents />
 			<ClassReminder />
+			<MainVideos />
+			<MainPricing />
+
 			<TestDrivePricing />
 			<Footer />
 		</div>

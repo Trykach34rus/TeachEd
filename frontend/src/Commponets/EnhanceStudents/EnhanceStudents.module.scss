@@ -1,68 +1,69 @@
 .root {
-  padding: 0 5%;
-  background-color: #111111;
-  background-image: url("../../assets/background-enchance.png");
-  background-repeat: repeat;
-  color: white;
-  padding-bottom: 100px;
-  .enhanceTitle {
-    color: #fff;
-    padding-top: 100px;
+	padding: 0 5%;
+	background-color: #111111;
+	background-image: url('../../assets/background-enchance.png');
+	background-repeat: repeat;
+	color: white;
+	padding-bottom: 100px;
+	.enhanceTitle {
+		font-family: 'Geometria', sans-serif;
+		color: #fff;
+		padding-top: 100px;
 
-    text-transform: uppercase;
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+		text-transform: uppercase;
+		font-size: 48px;
+		font-weight: 900;
+		line-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-  .enhanceTitle span {
-    background: linear-gradient(100deg, #e55d87, #66bddf);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+	.enhanceTitle span {
+		background: linear-gradient(100deg, #e55d87, #66bddf);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 
-  .enhanceBody {
-    max-width: 1528px;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    margin-top: 48px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 24px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+	.enhanceBody {
+		max-width: 1528px;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		margin-top: 48px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+		gap: 24px;
+		align-items: center;
+		flex-wrap: wrap;
+	}
 
-  .enhanceCard {
-    width: 494px;
-    height: 435px;
-    display: flex;
-    flex-direction: column;
-    background-color: #161616;
-    border-radius: 24px;
-  }
+	.enhanceCard {
+		width: 494px;
+		height: 435px;
+		display: flex;
+		flex-direction: column;
+		background-color: #161616;
+		border-radius: 24px;
+	}
 
-  .enhanceCard img {
-    width: 494px;
-    height: 278px;
-  }
+	.enhanceCard img {
+		width: 494px;
+		height: 278px;
+	}
 
-  .enhanceCard h2 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 100%;
-    margin-top: 24px;
-    margin-left: 24px;
-  }
+	.enhanceCard h2 {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 100%;
+		margin-top: 24px;
+		margin-left: 24px;
+	}
 
-  .enhanceCard p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 100%;
-    margin-top: 8px;
-    margin-left: 24px;
-  }
+	.enhanceCard p {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 100%;
+		margin-top: 8px;
+		margin-left: 24px;
+	}
 }

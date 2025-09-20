@@ -11,13 +11,13 @@
 	position: relative;
 
 	.title {
-		width: 493px;
 		font-family: 'Geometria', sans-serif;
 		font-weight: 900;
-		font-style: normal;
 		font-size: 48px;
-		line-height: 1.2;
-		z-index: 50;
+		line-height: 100%;
+		text-transform: uppercase;
+		max-width: 100%;
+		margin: 0;
 	}
 
 	.container {

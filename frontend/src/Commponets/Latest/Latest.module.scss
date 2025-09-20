@@ -8,11 +8,14 @@
 	background-color: #f7f7f7;
 
 	.latestTitle {
-		font-family: Geometria;
-		font-style: Heavy;
+		font-family: 'Geometria', sans-serif;
+		font-weight: 900;
 		font-size: 48px;
-		font-weight: bold;
+		line-height: 100%;
 		text-align: center;
+		text-transform: uppercase;
+		max-width: 100%;
+		margin: 0;
 	}
 	.acquaintance {
 		margin-top: 8px;
