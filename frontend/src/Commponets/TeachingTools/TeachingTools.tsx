@@ -4,9 +4,10 @@ import TechingToolsSvg2 from '../../assets/TechingTools-svg-2.svg'
 import TechingToolsSvg3 from '../../assets/TechingTools-svg-3.svg'
 import TechingToolsSvg4 from '../../assets/TechingTools-svg-4.svg'
 import TechingToolsSvg5 from '../../assets/TechingTools-svg-5.svg'
+import { ToolItem } from '../../utils/type'
 import st from './TeachingTools.module.scss'
 
-const toolsData = [
+const toolsData: ToolItem[] = [
 	{
 		id: 1,
 		title: 'Real-life Class Simulation',
@@ -43,7 +44,6 @@ const toolsData = [
 		icon: TechingToolsSvg5,
 	},
 ]
-
 export default function TeachingTools() {
 	return (
 		<section className={st.root}>

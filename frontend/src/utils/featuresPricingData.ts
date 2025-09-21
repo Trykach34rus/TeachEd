@@ -1,0 +1,286 @@
+import { FeatureItem } from './type'
+
+export const materials: FeatureItem[] = [
+	{
+		name: 'Access the collection of ready-to-use lessons',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Create custom materials in any language',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Over 30 exercise templates',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'AI-Assistant',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Edit free lessons from the catalog',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Share materials with colleagues',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+]
+
+export const learning: FeatureItem[] = [
+	{
+		name: 'Access the Study on any device of ready-to-use lessons',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Work with groups',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Automatic exercise checking',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Highlight-to-translate into 25 languages',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Personal dictionary',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Vocabulary drill',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Work with groups',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Voiced-over irregular verbs',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Virtual whiteboard',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Real-time classes',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Videoconferencing',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Chat and animated reactions',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Text and voice exercise comments',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Timer',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Homework module',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Asynchronous learning',
+		classes: false,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Exercise modules to complement offline classes',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Quizzes and tests',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Lesson deadlines',
+		classes: false,
+		courses: true,
+		school: true,
+	},
+]
+
+export const management: FeatureItem[] = [
+	{
+		name: "Teacher's landing page",
+		classes: true,
+		courses: false,
+		school: false,
+	},
+	{
+		name: 'Schedule',
+		classes: true,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Class statuses and reports',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Grades',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Exercise statistics',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Student leaderboard',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: '10 online course access modes',
+		classes: false,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Homework reminders',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Payments with bonuses',
+		classes: true,
+		courses: true,
+		school: true,
+	},
+	{
+		name: 'Control panel + statistics',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Online course curators',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Max number of teachers/curators',
+		classes: '1',
+		courses: '1',
+		school: 'Unlimited',
+	},
+	{
+		name: 'Max number of students',
+		classes: '50',
+		courses: 'Unlimited',
+		school: 'Unlimited',
+	},
+	{
+		name: 'Access groups for employees',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Branded platform (White Label)',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Set up lesson packages and prices',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Built-in payment acceptance',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Balance system',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Automatically deactivate students and pay for active only',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Incognito mode for QA',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+	{
+		name: 'Student NPS control',
+		classes: false,
+		courses: false,
+		school: true,
+	},
+]

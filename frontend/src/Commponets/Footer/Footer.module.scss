@@ -1,0 +1,36 @@
+.root {
+  padding: 0 5%;
+  background: #111111;
+  height: 225px;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .footerMenu {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footerMenu button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+    list-style: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
+

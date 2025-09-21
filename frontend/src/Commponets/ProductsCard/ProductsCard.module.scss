@@ -1,0 +1,165 @@
+.root {
+  padding: 0 5%;
+  background: #f7f7f7;
+
+  .container {
+    padding-top: 48px;
+  }
+  .productsContent {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .productsCard {
+    background-color: #fff;
+    width: 494px;
+    height: 775px;
+    border-radius: 24px;
+    padding: 24px;
+  }
+  .productsCardHead {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 104px;
+      height: 104px;
+    }
+
+    h2 {
+      color: #000;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+    p {
+      color: #5c5c5c;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+
+  .productsCardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .productsCardPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      color: #000;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+
+    p {
+      width: 70px;
+      height: 32px;
+      color: #000;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+    }
+  }
+
+  .productsCardButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 445px;
+  }
+
+  .productsButtonStudents {
+    background-color: #f7f9fc;
+    border-radius: 12px;
+    height: 44px;
+    border: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5c5c5c;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+  }
+
+  .productsButtonOut {
+    background-color: #ff4785;
+    border-radius: 8px;
+    height: 64px;
+    border: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  .productsButtonFree {
+    background-color: #fff;
+    height: 64px;
+    border: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff4785;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+  }
+
+  .productsCardFeatures {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      color: #000;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+  }
+
+  .productsFeatures {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .productsFeaturesItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    p {
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+}

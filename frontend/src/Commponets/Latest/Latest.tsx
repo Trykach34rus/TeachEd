@@ -4,10 +4,11 @@ import latestImage1 from '../../assets/Latest-image-1.png'
 import latestImage2 from '../../assets/Latest-image-2.png'
 import latestImage3 from '../../assets/Latest-image-3.png'
 import userAvatar1 from '../../assets/user-avatar-1.png'
+import { LatestItem } from '../../utils/type'
 import st from './Latest.module.scss'
 type Props = {}
 
-const latestObj = [
+const latestObj: LatestItem[] = [
 	{
 		img: latestImage1,
 		category: 'Category #1',
