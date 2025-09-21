@@ -1,5 +1,5 @@
-import st from './HeroBlog.module.scss'
 import CatBackground from '../../assets/cat-background.png'
+import st from './HeroBlog.module.scss'
 
 export default function HeroBlog() {
 	return (
@@ -18,11 +18,10 @@ export default function HeroBlog() {
 					<p className={st.description}>
 						AI is revolutionizing online education by personalizing learning
 						experiences, automating administrative tasks, and providing
-						real-time feedback. It’s enabling adaptive learning platforms
-						that tailor content to individual needs, making education more
-						accessible and efficient.
+						real-time feedback. It’s enabling adaptive learning platforms that
+						tailor content to individual needs, making education more accessible
+						and efficient.
 					</p>
-
 				</div>
 			</div>
 		</section>
