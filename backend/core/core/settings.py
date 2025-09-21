@@ -23,12 +23,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    # Installed Apps
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'corsheaders',
     'drf_spectacular',
     'djoser',
+    'storages',
+    
+    # Local Apps
     'api',
     'users',
 ]
@@ -65,17 +70,13 @@ ROOT_URLCONF = "core.urls"
 WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('POSTGRES_DB'),
         'USER': os.environ.get('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'PORT': os.environ.get('POSTGRES_PORT', 5432),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
 
@@ -106,11 +107,10 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
-    BASE_DIR / "core" / "static",
+    BASE_DIR / "static",
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -165,7 +165,9 @@ DJOSER = {
     'PERMISSIONS': {
         'user_list': ['rest_framework.permissions.IsAdminUser'],
         'user': ['rest_framework.permissions.IsAuthenticated'],
-    }
+    },
+    'DISABLE_ENDPOINTS': ['user_activation', 'user_resend_activation'],
+    'USER_CREATE_PASSWORD_RETYPE': False,
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -178,9 +180,28 @@ REDIS_HOST = os.environ.get('REDIS_HOST')
 REDIS_PORT = os.environ.get('REDIS_PORT')
 
 # Celery
-CELERY_BROKER_URL = f"amqp://{os.environ.get('RABBITMQ_USER', 'guest')}:{os.environ.get('RABBITMQ_PASSWORD', 'guest')}@{os.environ.get('RABBITMQ_HOST', 'rabbitmq')}:5672//"
+CELERY_BROKER_URL = f"amqp://{os.environ.get('RABBITMQ_USER')}:{os.environ.get('RABBITMQ_PASSWORD')}@{os.environ.get('RABBITMQ_HOST')}:{os.environ.get('RABBITMQ_PORT_API')}//"
 CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
+
+# S3 Storage
+STORAGES = {
+    "default": {  
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",  # Или "storages.backends.s3.S3Storage" для новых версий
+        "OPTIONS": {
+            "bucket_name": os.environ.get('MINIO_BUCKET_NAME'),
+            "access_key": os.environ.get('MINIO_USER'),
+            "secret_key": os.environ.get('MINIO_PASSWORD'),
+            "endpoint_url": f"http://minio:{os.environ.get('MINIO_PORT_API')}",
+            "querystring_auth": False,
+            "file_overwrite": True,
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",  # Локально, или S3 для статических
+    },
+}
+

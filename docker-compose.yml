@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   postgres:
     image: postgres:16-alpine
@@ -57,7 +55,39 @@ services:
     image: nginx:alpine
     depends_on:
       - backend
+      - frontend
+    ports:
+      - "80:80"
+
+  frontend:
+    build:
+      context: ./frontend
+    #command: sh -c "cp -r /app/dist/* /dist/"
+  
+  minio:
+    image: minio/minio:latest
+    container_name: minio_dev_s3storage
+    command: server --console-address ":${MINIO_PORT_UI}" /data
+    restart: always
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+
+  createbucket:
+    image: minio/mc
+    depends_on:
+      - minio
+    environment:
+      MC_HOST_local: http://${MINIO_USER}:${MINIO_PASSWORD}@minio:9000
+    entrypoint: >
+      /bin/sh -c "
+        sleep 5 &&
+        mc alias set local "http://minio:${MINIO_PORT_API}" "${MINIO_USER}" "${MINIO_PASSWORD}" && 
+        mc mb --ignore-existing local/${MINIO_BUCKET_NAME} || true
+      "
 
 volumes:
   postgres_data:
   static_volume:
+  frontend_volume:
+  minio_data:

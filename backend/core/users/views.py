@@ -1,9 +1,21 @@
-from rest_framework import generics, permissions
-from django.contrib.auth import get_user_model
-from .serializers import UserSerializer
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+from . import serializers
 
-CustomUser = get_user_model()
 
-class UserListAPIView(generics.ListAPIView):
-    queryset = CustomUser.objects.all()
-    serializer_class = UserSerializer
+class AvatarView(APIView):
+    serializer_class = serializers.UserAvatarSerializer
+    parser_classes = [MultiPartParser, FormParser]
+
+    def get(self, request):
+        serializer = serializers.UserAvatarSerializer(request.user)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = serializers.UserAvatarSerializer(request.user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
