@@ -19,16 +19,16 @@
   .footerListMenu {
     display: flex;
     gap: 24px;
+  }
 
-    li {
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 100%;
-        list-style: none;
-      }
-    }
+  .footerMenu button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+    list-style: none;
+    background-color: transparent;
+    border: none;
   }
 }

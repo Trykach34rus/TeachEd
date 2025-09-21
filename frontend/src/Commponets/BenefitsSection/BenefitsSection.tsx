@@ -1,14 +1,10 @@
 import ChekMarkOrange from '../../assets/ChekMark-Orange.svg'
 import ChekMark from '../../assets/ChekMark.svg'
 import TechEdLogo from '../../assets/TeachEd-Logo-Black.svg'
+import { BenefitItem } from '../../utils/type'
 import st from './BenefitsSection.module.scss'
 
 type Props = {}
-
-type BenefitItem = {
-	title: string
-	description: string
-}
 
 const benefitsData: BenefitItem[] = [
 	{

@@ -3,11 +3,12 @@ import image2 from '../../assets/Jorney-image2.png'
 import image3 from '../../assets/Jorney-image3..png'
 import image4 from '../../assets/Jorney-image4.png'
 import vector35 from '../../assets/Vector 35.svg'
+import { JourneyItem } from '../../utils/type'
 import st from './TeachingJourney.module.scss'
 
 type Props = {}
 
-const journeyObj = [
+const journeyObj: JourneyItem[] = [
 	{
 		img: image1,
 		title: 'ASK',
