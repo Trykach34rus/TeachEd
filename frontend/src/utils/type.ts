@@ -20,3 +20,13 @@ export type ToolItem = {
 	description: string
 	icon: string
 }
+export type LatestItem = {
+	img: string
+	category: string
+	title: string
+	description: string
+	userAvatar: string
+	userName: string
+	createdDate: string
+	link: string
+}
