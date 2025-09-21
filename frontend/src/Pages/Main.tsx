@@ -28,7 +28,6 @@ export default function Main({}: Props) {
 			<ClassReminder />
 			<MainVideos />
 			<MainPricing />
-
 			<TestDrivePricing />
 			<Footer />
 		</div>
