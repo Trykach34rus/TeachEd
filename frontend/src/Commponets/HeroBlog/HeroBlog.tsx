@@ -1,5 +1,6 @@
 import CatBackground from '../../assets/cat-background.png'
 import st from './HeroBlog.module.scss'
+//
 
 export default function HeroBlog() {
 	return (
