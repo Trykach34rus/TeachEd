@@ -16,7 +16,7 @@
     width: 100%;
   }
 
-  .footerListMenu {
+  .footerMenu {
     display: flex;
     gap: 24px;
   }
@@ -30,5 +30,7 @@
     list-style: none;
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
 }
+
