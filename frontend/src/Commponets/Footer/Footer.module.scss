@@ -32,5 +32,24 @@
     border: none;
     cursor: pointer;
   }
+
+  @media (max-width: 822px) {
+    .footerMenu {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footerMenu button {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      list-style: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
 }
 

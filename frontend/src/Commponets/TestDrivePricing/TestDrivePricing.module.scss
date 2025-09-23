@@ -1,7 +1,17 @@
+
 .root {
   padding: 0 5%;
   background: #f7f7f7;
 
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
   .container {
     padding-top: 263px;
     padding-bottom: 100px;
@@ -92,12 +102,17 @@
     }
   }
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+@media (max-width: 822px) {
+  .driveButton {
+    margin-top: 24px;
+    background-color: #ff4785;
+    border-radius: 8px;
+    width: 200px;
+    height: 60px;
+    border: none;
+    padding: 12px 24px;
   }
+}
+
+
 }
