@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import ChekMarkOrange from '../../assets/ChekMark-Orange.svg'
 import ChekMark from '../../assets/ChekMark.svg'
 import TechEdLogo from '../../assets/TeachEd-Logo-Black.svg'
-import { BenefitItem } from '../../utils/type'
+import { ActiveBlock, BenefitItem } from '../../utils/type'
 import st from './BenefitsSection.module.scss'
 
 type Props = {}
@@ -117,10 +118,36 @@ const beneSecondData: BenefitItem[] = [
 ]
 
 export default function BenefitsSection({}: Props) {
+	const [activeBlock, setActiveBlock] = useState<ActiveBlock>(
+		ActiveBlock.TEACH_ED
+	)
+
 	return (
 		<section className={st.root}>
 			<div className={st.container}>
-				<div className={st.traditionalApproachContainer}>
+				<div className={st.mobileButtons}>
+					<button
+						className={`${st.mobileButton} ${
+							activeBlock === ActiveBlock.TRADITIONAL ? st.active : ''
+						}`}
+						onClick={() => setActiveBlock(ActiveBlock.TRADITIONAL)}
+					>
+						Traditional Approach
+					</button>
+					<button
+						className={`${st.mobileButton} ${
+							activeBlock === ActiveBlock.TEACH_ED ? st.active : ''
+						}`}
+						onClick={() => setActiveBlock(ActiveBlock.TEACH_ED)}
+					>
+						<img src={TechEdLogo} alt='' />
+					</button>
+				</div>
+				<div
+					className={`${st.traditionalApproachContainer} ${
+						activeBlock === ActiveBlock.TRADITIONAL ? st.active : ''
+					}`}
+				>
 					<p className={st.traditionalApproachTitle}>Traditional Approach</p>
 					<div className={st.benefitsBlock}>
 						{benefitsData.map((benefit, index) => (
@@ -134,9 +161,14 @@ export default function BenefitsSection({}: Props) {
 						))}
 					</div>
 				</div>
-				<div className={st.teachEdContainer}>
+
+				<div
+					className={`${st.teachEdContainer} ${
+						activeBlock === ActiveBlock.TEACH_ED ? st.active : ''
+					}`}
+				>
 					<div className={st.traditionalApproachTitle}>
-						<img src={TechEdLogo} />
+						<img src={TechEdLogo} alt='TeachEd Logo' />
 					</div>
 					<div className={st.benefitsBlock}>
 						{beneSecondData.map((benefit, index) => (

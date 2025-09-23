@@ -79,7 +79,7 @@
 			display: none;
 		}
 
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) {
 			position: fixed;
 			left: 0;
 			top: 0;
@@ -141,7 +141,7 @@
 		font-size: 24px;
 		color: #ff4785;
 
-		@media (min-width: 768px) {
+		@media (min-width: 1024px) {
 			display: none;
 		}
 	}
@@ -163,7 +163,7 @@
 	.burger {
 		display: none;
 
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) {
 			display: block;
 			background: none;
 			border: none;
@@ -209,7 +209,7 @@
 		gap: 16px;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
 		.lang {
 			display: none;
 		}

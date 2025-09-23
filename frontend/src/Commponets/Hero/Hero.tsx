@@ -7,12 +7,10 @@ export default function Hero() {
 		<section className={st.root}>
 			<div className={st.row}>
 				<div className={st.textBlock}>
-					<h1>
-						WHERE <br />
-						CREATIVE <br />
-						TEACHING <br />
-						<span className={st.highlight}>THRIVES</span>
-					</h1>
+					WHERE <br />
+					CREATIVE <br />
+					TEACHING <br />
+					<span className={st.highlight}>THRIVES</span>
 					<div className={st.buttonContainer}>
 						<img src={Vector} alt='' />
 						<div className={st.ctaButton}>

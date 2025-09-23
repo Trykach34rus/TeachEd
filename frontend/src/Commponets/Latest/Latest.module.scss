@@ -121,4 +121,10 @@
 		background: none;
 		cursor: pointer;
 	}
+	@media (max-width: 1024px) {
+		.latestContainer {
+			display: flex;
+			align-items: center;
+		}
+	}
 }
