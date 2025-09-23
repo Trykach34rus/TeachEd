@@ -51,5 +51,41 @@
       cursor: pointer;
     }
   }
+
+  @media (max-width: 647px) {
+
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .footerContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .footerMenu {
+      margin-top: 45px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .footerMenu button {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 100%;
+      list-style: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+  }
 }
 

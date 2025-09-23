@@ -140,4 +140,37 @@
 
   }
 
+  @media (max-width: 545px) {
+    .featuresCategory {
+      display: flex;
+      color: #000;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 100%;
+      margin-top: 48px;
+      align-items: flex-end;
+    }
+
+    .featuresIndicatorsBig {
+      width: 664px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+
+
+    .featuresIndicatorsBig img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .featuresIndicatorsMd img {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }
