@@ -162,4 +162,19 @@
       line-height: 100%;
     }
   }
+  
+  
+  
+  @media (max-width: 1231px) {
+    .productsContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+  }
+
+
 }
