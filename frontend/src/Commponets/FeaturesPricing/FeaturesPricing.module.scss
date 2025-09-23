@@ -68,6 +68,7 @@
 
   .featuresCategoryMdHead p {
     display: flex;
+
   }
 
   //Показатели
@@ -120,5 +121,78 @@
     background-color: #d7d7d7;
     width: 12px;
     height: 2.4px;
+  }
+
+
+  @media (max-width: 1171px) {
+    .featuresCategory {
+      display: flex;
+      color: #000;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 100%;
+      margin-top: 48px;
+      align-items: flex-end;
+    }
+
+    .featuresCategoryMd {
+      width: 256px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+  }
+
+
+  @media (max-width: 1082px) {
+
+    .featuresCategory {
+      display: flex;
+      color: #000;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+      margin-top: 48px;
+      align-items: flex-end;
+      gap: 50px;
+    }
+
+    .featuresCategoryBig {
+      width: 400px;
+      display: flex;
+    }
+    .featuresCategoryMd {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .featuresIndicatorsRow {
+      display: flex;
+      border-bottom: 1px solid #d7d7d7;
+      border-top: 1px solid #d7d7d7;
+      gap: 50px;
+    }
+
+    .featuresIndicatorsBig {
+      width: 400px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: #000;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+
+    .featuresIndicatorsMd {
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
