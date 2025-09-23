@@ -9,7 +9,9 @@ export default function TestDrivePricing() {
 			<section className={st.root}>
 				<div className={st.container}>
 					<div className={st.driveContent}>
-						<img src={DriveCat} alt='drivecat' />
+						<div className={st.driveContentImg}>
+						<img  src={DriveCat} alt='drivecat' />
+						</div>
 						<div className={st.driveContainer}>
 							<div className={st.driveTitle}>
 								Test-drive the platform<br />of the future today!
