@@ -11,15 +11,15 @@ services:
   
   rabbitmq:
     ports:
-      - "5672:5672"
-      - "15672:15672" # management UI
+      - "${RABBITMQ_PORT_API}:${RABBITMQ_PORT_API}"
+      - "${RABBITMQ_PORT_UI}:${RABBITMQ_PORT_UI}" # management UI
       
   backend:
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/app
-      - static_volume:/app/staticfiles
+      - static_volume:/app/static
 
   video-processor:
     volumes:
@@ -29,5 +29,17 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.dev.conf:ro
-      - static_volume:/app/staticfiles
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/static
+      - frontend_volume:/app/frontend
+
+  frontend:
+    volumes:
+      - frontend_volume:/dist
+       
+  minio:
+    ports:
+      - "${MINIO_PORT_API}:${MINIO_PORT_API}"  # S3 API
+      - "${MINIO_PORT_UI}:${MINIO_PORT_UI}"  # Web UI
+    volumes:
+      - minio_data:/data

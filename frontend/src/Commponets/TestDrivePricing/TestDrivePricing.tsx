@@ -12,7 +12,7 @@ export default function TestDrivePricing() {
 						<img src={DriveCat} alt='drivecat' />
 						<div className={st.driveContainer}>
 							<div className={st.driveTitle}>
-								Test-drive the platform of the future today!
+								Test-drive the platform<br />of the future today!
 							</div>
 							<button className={st.driveButton}>
 								<span>TRY FOR FREE</span>
