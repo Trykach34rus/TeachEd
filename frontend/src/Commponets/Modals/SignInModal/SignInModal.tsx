@@ -3,13 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import closeImage from '../../../assets/closeImage.svg'
 import { handleLogin } from '../../../redux/slices/userReducer'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { SignInModalProps } from '../../../utils/type'
 import st from './SignInModal.module.scss'
-
-interface SignInModalProps {
-	isOpen: boolean
-	onClose: () => void
-	onSwitchToSignUp: () => void
-}
 
 export default function SignInModal({
 	isOpen,
@@ -29,7 +24,7 @@ export default function SignInModal({
 		onSubmit: values => {
 			dispatch(handleLogin(values)).then(action => {
 				if (action.meta.requestStatus === 'fulfilled') {
-					navigate('/dashboard')
+					navigate('/main')
 					onClose()
 				}
 			})

@@ -3,13 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import closeImage from '../../../assets/closeImage.svg'
 import { handleRegister } from '../../../redux/slices/userReducer'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { SignUpModalProps } from '../../../utils/type'
 import st from './SignUpModal.module.scss'
-
-interface SignUpModalProps {
-	isOpen: boolean
-	onClose: () => void
-	onSwitchToSignIn: () => void
-}
 
 interface FormData {
 	firstName: string
@@ -108,7 +103,6 @@ export default function SignUpModal({
 					</p>
 
 					<div className={st.inputBlock}>
-						{/* First Name Field */}
 						<div className={st.fieldContainer}>
 							{formik.touched.firstName && formik.errors.firstName && (
 								<span className={st.error}>{formik.errors.firstName}</span>
@@ -124,8 +118,6 @@ export default function SignUpModal({
 								disabled={formik.isSubmitting}
 							/>
 						</div>
-
-						{/* Last Name Field */}
 						<div className={st.fieldContainer}>
 							{formik.touched.lastName && formik.errors.lastName && (
 								<span className={st.error}>{formik.errors.lastName}</span>
@@ -141,8 +133,6 @@ export default function SignUpModal({
 								disabled={formik.isSubmitting}
 							/>
 						</div>
-
-						{/* Email Field */}
 						<div className={st.fieldContainer}>
 							{formik.touched.email && formik.errors.email && (
 								<span className={st.error}>{formik.errors.email}</span>
@@ -159,7 +149,6 @@ export default function SignUpModal({
 							/>
 						</div>
 
-						{/* Password Field */}
 						<div className={st.fieldContainer}>
 							{formik.touched.password && formik.errors.password && (
 								<span className={st.error}>{formik.errors.password}</span>
@@ -175,8 +164,6 @@ export default function SignUpModal({
 								disabled={formik.isSubmitting}
 							/>
 						</div>
-
-						{/* Repeat Password Field */}
 						<div className={st.fieldContainer}>
 							{formik.touched.repeatPassword &&
 								formik.errors.repeatPassword && (

@@ -38,7 +38,7 @@ export default function Header() {
 	}, [location.pathname])
 
 	const openSignInModal = () => setActiveModal('signin')
-	const openSignUpModal = () => setActiveModal('signup')
+	// const openSignUpModal = () => setActiveModal('signup')
 	const closeModal = () => setActiveModal(null)
 
 	const switchToSignUp = () => {

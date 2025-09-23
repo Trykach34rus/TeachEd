@@ -19,6 +19,19 @@ export type JourneyItem = {
 	id: string
 	description: string
 }
+export type SignUpModalProps = {
+	isOpen: boolean
+	onClose: () => void
+	onSwitchToSignIn: () => void
+}
+export type SignInModalProps = {
+	isOpen: boolean
+	onClose: () => void
+	onSwitchToSignUp: () => void
+}
+export type HeroProps = {
+	onSwitchToSignUp: () => void
+}
 export type ToolItem = {
 	id: number
 	title: string
