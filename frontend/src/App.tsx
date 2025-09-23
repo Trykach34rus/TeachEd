@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import AboutUs from './Pages/AboutUs'
 import Blog from './Pages/Blog'
@@ -18,6 +18,7 @@ export default function App() {
 					<Route path='/about' element={<AboutUs />} />
 					<Route path='/pricing' element={<Pricing />} />
 					<Route path='/contact' element={<ContactUs />} />
+					<Route path='*' element={<Navigate to='/' replace />} />
 				</Routes>
 			</div>
 		</>
