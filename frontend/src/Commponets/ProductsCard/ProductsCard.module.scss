@@ -45,7 +45,7 @@
   .productsCardInfo {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+
   }
   .productsCardPrice {
     display: flex;
@@ -128,7 +128,7 @@
   }
 
   .productsCardFeatures {
-    margin-top: 24px;
+
     display: flex;
     flex-direction: column;
 
@@ -171,7 +171,6 @@
       justify-content: center;
       align-items: center;
       align-content: center;
-      gap: 24px;
       flex-wrap: wrap;
     }
   }
@@ -179,6 +178,75 @@
   @media (max-width: 520px) {
     .productsCard {
       width: 350px;
+    }
+  }
+
+  @media (max-width: 473px) {
+    .productsCard {
+      width: 315px;
+      height: 683px;
+    }
+
+    .productsCardHead {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .productsCardInfo {
+      display: flex;
+      flex-direction: column;
+
+    }
+    .productsCardPrice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        color: #000;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 100%;
+      }
+
+      p {
+        width: 70px;
+        height: 32px;
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 100%;
+      }
+    }
+
+
+
+    .productsFeatures {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .productsFeaturesItem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      p {
+        color: #000;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 100%;
+      }
     }
   }
 

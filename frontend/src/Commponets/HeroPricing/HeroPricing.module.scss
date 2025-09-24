@@ -38,4 +38,10 @@
       height: 100%;
     }
   }
+  
+  @media (max-width: 473px) {
+    .titlePricing {
+      font-size: 32px;
+    }
+  }
 }

@@ -63,7 +63,7 @@
   }
 
   .driveButton {
-    margin-top: 24px;
+margin-top: 24px;
     background-color: #ff4785;
     border-radius: 8px;
     width: 200px;
@@ -138,11 +138,13 @@
     margin-top: -190px;
   }
 
+
+
   .driveTitle {
     margin-top: 24px;
     display: flex;
     text-align: center;
-    font-size: 30px;
+    font-size: 32px;
     flex-wrap: wrap;
     font-weight: 900;
     line-height: 100%;
@@ -159,6 +161,47 @@
     border: none;
     padding: 12px 24px;
   }
-
 }
+
+  @media (max-width: 504px) {
+    .driveButton {
+      margin-top: 35px;
+    }
+  }
+
+
+  @media (max-width: 473px) {
+    .driveContentImg {
+      width: 215px;
+      height: 191px;
+    }
+
+    .driveContentImg img {
+      width: 215px;
+      height: 121px;
+      margin-top: 70px;
+    }
+    .driveTitle {
+      font-size: 32px;
+    }
+    .driveButton {
+      margin-top: 75px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .driveContentImg img {
+      width: 215px;
+      height: 121px;
+      margin-top: 65px;
+    }
+
+    .driveButton {
+      margin-top: 45px;
+    }
+
+  }
+
+
+
 }
