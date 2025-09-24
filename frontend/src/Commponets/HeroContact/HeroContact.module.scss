@@ -1,0 +1,104 @@
+.root {
+  padding: 0 5%;
+  background: #f7f7f7;
+  color: #000;
+  padding-top: 88px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("../../assets/bg-contactCard.png") no-repeat;
+    background-position: calc(50% - 40px) calc(50% + 300px);
+  }
+
+  .mainCatImage {
+    width: 532px;
+    height: 258px;
+  }
+
+  .textContact {
+    margin-top: -30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    p {
+      color: #000;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+      margin: 0;
+    }
+  }
+
+  .titleContact {
+    margin: 0;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 100%;
+    background: linear-gradient(82deg, #e55d87 0%, #e55d87 55%, #66bddf 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cardsContact {
+    margin-top: 48px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cardContact {
+    width: 494px;
+    height: 354px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 24px;
+
+    img {
+      margin-left: -22px;
+      width: 100px;
+      height: 100px;
+    }
+
+    h2 {
+      color: #000;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+    }
+    p {
+      color: #5c5c5c;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 100%;
+    }
+  }
+
+  .buttonContact {
+    width: 100%;
+    background-color: #ff4785;
+    border-radius: 8px;
+    height: 64px;
+    border: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+  }
+}
