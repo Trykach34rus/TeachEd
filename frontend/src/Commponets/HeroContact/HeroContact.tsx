@@ -1,6 +1,6 @@
 import st from "./HeroContact.module.scss";
 
-import bg from "../../assets/bg-contactCard.png";
+
 import CatBeige from "../../assets/ContactCatBeige.png";
 import CatGinger from "../../assets/ContactCatGinger.png";
 import CatWhite from "../../assets/ContactCatWhite.png";
