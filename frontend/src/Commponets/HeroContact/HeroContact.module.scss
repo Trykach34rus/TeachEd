@@ -69,12 +69,14 @@
     }
 
     h2 {
+margin: 24px 0 0 0;
       color: #000;
       font-size: 24px;
       font-weight: 700;
       line-height: 100%;
     }
     p {
+
       color: #5c5c5c;
       font-size: 16px;
       font-weight: 400;
@@ -83,6 +85,7 @@
   }
 
   .buttonContact {
+    margin-top: 24px;
     width: 100%;
     background-color: #ff4785;
     border-radius: 8px;
