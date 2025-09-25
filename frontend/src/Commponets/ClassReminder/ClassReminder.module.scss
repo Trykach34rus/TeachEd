@@ -7,6 +7,7 @@
 	flex-direction: column;
 	background-color: #f7f7f7;
 	padding-top: 100px;
+
 	.title {
 		font-family: 'Geometria', sans-serif;
 		font-weight: 900;
@@ -24,7 +25,64 @@
 			-webkit-text-fill-color: transparent;
 		}
 	}
+
 	.image {
 		margin-top: 56px;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.root {
+		height: auto;
+		min-height: 800px;
+
+		.title {
+			font-size: 36px;
+			line-height: 1.2;
+		}
+
+		.image {
+			margin-top: 40px;
+			max-width: 600px;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.root {
+		min-height: 600px;
+
+		.title {
+			font-size: 28px;
+			line-height: 1.3;
+		}
+
+		.image {
+			margin-top: 32px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.root {
+		padding: 40px 16px;
+		min-height: 500px;
+
+		.title {
+			font-size: 24px;
+		}
+
+		.image {
+			margin-top: 24px;
+		}
 	}
 }

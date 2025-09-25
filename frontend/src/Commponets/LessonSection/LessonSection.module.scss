@@ -122,43 +122,152 @@
 }
 
 @media (max-width: 1024px) {
-	.root .container {
-		width: 100%;
-		height: auto;
-		padding: 40px 20px;
-	}
-	.root .title {
-		margin-top: 10px;
-		margin-bottom: 250px;
-	}
+	.root {
+		min-height: auto;
+		padding-top: 60px;
 
-	.root .centerBlock {
-		width: 100%;
-		height: auto;
-	}
+		.container {
+			gap: 40px;
+		}
 
-	.root .paintImage {
-		width: 130%;
-	}
+		.title {
+			font-size: 2rem;
+			padding: 0 20px;
+		}
 
-	.root .tabletImage {
-		width: 100%;
-		z-index: 51;
-	}
+		.centerBlock {
+			max-width: 70%;
+		}
 
-	.root .leftNote {
-		left: 10% !important;
-		top: 5% !important;
-		transform: rotate(-11.35deg) !important;
-		background-color: #ffff;
-		margin-top: 180px;
-	}
+		.paintImage {
+			width: 130%;
+		}
 
-	.root .rightNote {
-		right: 10% !important;
-		top: 5% !important;
-		transform: rotate(3.71deg) !important;
-		background-color: #ffff;
-		margin-top: 180px;
+		.tabletImage {
+			width: 85%;
+		}
+
+		.leftNote {
+			top: 10% !important;
+			left: 2% !important;
+			font-size: 24px;
+			height: auto;
+			padding: 12px;
+			transform: rotate(-8deg) !important;
+		}
+
+		.rightNote {
+			top: 15% !important;
+			right: 2% !important;
+			width: 250px;
+			height: auto;
+			font-size: 24px;
+			padding: 10px 12px;
+			transform: rotate(5deg) !important;
+
+			img {
+				width: 30px;
+				height: auto;
+			}
+		}
+
+		.bottomNote {
+			width: 220px;
+			font-size: 24px;
+			padding: 8px;
+			margin-top: 20px;
+
+			img {
+				width: 30px;
+				height: auto;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.root {
+		padding-top: 40px;
+
+		.title {
+			font-size: 1.5rem;
+		}
+
+		.centerBlock {
+			height: 400px;
+		}
+
+		.paintImage {
+			width: 130%;
+		}
+
+		.leftNote {
+			top: 5% !important;
+			left: 0% !important;
+			font-size: 18px;
+			padding: 8px;
+			transform: rotate(-5deg) !important;
+		}
+
+		.rightNote {
+			top: 8% !important;
+			right: 0% !important;
+			width: 180px;
+			font-size: 18px;
+			padding: 8px 10px;
+			transform: rotate(3deg) !important;
+
+			img {
+				width: 20px;
+			}
+		}
+
+		.bottomNote {
+			width: 180px;
+			font-size: 20px;
+			padding: 6px;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.root {
+		padding: 30px 12px;
+
+		.title {
+			font-size: 1.2rem;
+		}
+
+		.centerBlock {
+			height: 300px;
+		}
+
+		.tabletImage {
+			width: 95%;
+		}
+
+		.leftNote {
+			position: relative !important;
+			top: auto !important;
+			left: auto !important;
+			margin-bottom: 10px;
+			transform: rotate(-2deg) !important;
+			font-size: 16px;
+		}
+
+		.rightNote {
+			position: relative !important;
+			top: auto !important;
+			right: auto !important;
+			margin-bottom: 10px;
+			transform: rotate(2deg) !important;
+			font-size: 16px;
+			width: 160px;
+		}
+
+		.bottomNote {
+			width: 160px;
+			font-size: 18px;
+		}
 	}
 }
