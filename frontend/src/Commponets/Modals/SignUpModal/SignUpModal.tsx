@@ -7,11 +7,13 @@ import { SignUpModalProps } from '../../../utils/type'
 import st from './SignUpModal.module.scss'
 
 interface FormData {
-	firstName: string
-	lastName: string
+	username: string
 	email: string
+	first_name: string
+	last_name: string
 	password: string
 	repeatPassword: string
+	is_teacher: boolean
 }
 
 export default function SignUpModal({
@@ -25,21 +27,23 @@ export default function SignUpModal({
 
 	const formik = useFormik({
 		initialValues: {
-			firstName: '',
-			lastName: '',
+			username: '',
 			email: '',
+			first_name: '',
+			last_name: '',
 			password: '',
 			repeatPassword: '',
+			is_teacher: false,
 		},
 		validate: values => {
 			const errors: Partial<FormData> = {}
 
-			if (!values.firstName) {
-				errors.firstName = 'First name is required'
+			if (!values.first_name) {
+				errors.first_name = 'First name is required'
 			}
 
-			if (!values.lastName) {
-				errors.lastName = 'Last name is required'
+			if (!values.last_name) {
+				errors.last_name = 'Last name is required'
 			}
 
 			if (!values.email) {
@@ -65,9 +69,12 @@ export default function SignUpModal({
 		onSubmit: values => {
 			dispatch(
 				handleRegister({
-					fullName: `${values.firstName} ${values.lastName}`,
+					username: `${values.first_name} ${values.last_name}`,
+					first_name: values.first_name,
+					last_name: values.last_name,
 					email: values.email,
 					password: values.password,
+					is_teacher: values.is_teacher,
 				})
 			).then(action => {
 				if (action.meta.requestStatus === 'fulfilled') {
@@ -104,13 +111,13 @@ export default function SignUpModal({
 
 					<div className={st.inputBlock}>
 						<div className={st.fieldContainer}>
-							{formik.touched.firstName && formik.errors.firstName && (
-								<span className={st.error}>{formik.errors.firstName}</span>
+							{formik.touched.first_name && formik.errors.first_name && (
+								<span className={st.error}>{formik.errors.first_name}</span>
 							)}
 							<input
 								type='text'
-								name='firstName'
-								value={formik.values.firstName}
+								name='first_name'
+								value={formik.values.first_name}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								className={st.input}
@@ -119,13 +126,13 @@ export default function SignUpModal({
 							/>
 						</div>
 						<div className={st.fieldContainer}>
-							{formik.touched.lastName && formik.errors.lastName && (
-								<span className={st.error}>{formik.errors.lastName}</span>
+							{formik.touched.last_name && formik.errors.last_name && (
+								<span className={st.error}>{formik.errors.last_name}</span>
 							)}
 							<input
 								type='text'
-								name='lastName'
-								value={formik.values.lastName}
+								name='last_name'
+								value={formik.values.last_name}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								className={st.input}

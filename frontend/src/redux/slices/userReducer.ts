@@ -5,9 +5,12 @@ import { PostT, UserT } from '../../utils/type'
 import { RootState } from '../store'
 
 type HandleRegister = {
-	fullName: string
+	username: string
+	password: string | number
 	email: string
-	password: string
+	first_name: string
+	last_name: string
+	is_teacher: boolean
 }
 
 type HandleLogin = {
@@ -43,33 +46,82 @@ const initialState: UserState = {
 
 const handleRegister = createAsyncThunk(
 	'user/handleRegister',
-	(data: HandleRegister) => {
-		return axiosInstance.post('/users/add', data).then(res => res.data)
+	async (data: HandleRegister) => {
+		console.log('🔄 handleRegister: отправка запроса на регистрацию', { data })
+		try {
+			const response = await axiosInstance.post('auth/users/', data)
+			console.log('✅ handleRegister: успешная регистрация', response.data)
+			return response.data
+		} catch (error: any) {
+			console.error(
+				'❌ handleRegister: ошибка',
+				error.response?.data || error.message
+			)
+			throw error
+		}
 	}
 )
+
 const handleLogin = createAsyncThunk(
 	'user/handleLogin',
-	(data: HandleLogin) => {
-		return axiosInstance.post('/user/login', data).then(res => res.data)
+	async (data: HandleLogin) => {
+		console.log('🔄 handleLogin: отправка запроса на вход', { data })
+		try {
+			const response = await axiosInstance.post('/user/login', data)
+			console.log('✅ handleLogin: успешный вход', response.data)
+			return response.data
+		} catch (error: any) {
+			console.error(
+				'❌ handleLogin: ошибка',
+				error.response?.data || error.message
+			)
+			throw error
+		}
 	}
 )
 
 const getCurrentUser = createAsyncThunk(
 	'user/getCurrentUser',
-	(_, { getState }) => {
-		const state = getState()
-		return axiosInstance
-			.get('/user/me', {
+	async (_, { getState }) => {
+		const state = getState() as RootState
+		console.log('🔄 getCurrentUser: получение текущего пользователя', {
+			accessToken: state.user.accessToken,
+		})
+
+		try {
+			const response = await axiosInstance.get('/user/me', {
 				headers: {
-					Authorization: `Bearer ${(state as RootState).user.accessToken}`,
+					Authorization: `Bearer ${state.user.accessToken}`,
 				},
 			})
-			.then(res => res.data)
+			console.log(
+				'✅ getCurrentUser: данные пользователя получены',
+				response.data
+			)
+			return response.data
+		} catch (error: any) {
+			console.error(
+				'❌ getCurrentUser: ошибка',
+				error.response?.data || error.message
+			)
+			throw error
+		}
 	}
 )
 
-const getUserById = createAsyncThunk('user/getUserById', (id: number) => {
-	return axiosInstance.get(`/user/${id}`).then(res => res.data)
+const getUserById = createAsyncThunk('user/getUserById', async (id: number) => {
+	console.log('🔄 getUserById: получение пользователя по ID', { id })
+	try {
+		const response = await axiosInstance.get(`/user/${id}`)
+		console.log('✅ getUserById: данные пользователя получены', response.data)
+		return response.data
+	} catch (error: any) {
+		console.error(
+			'❌ getUserById: ошибка',
+			error.response?.data || error.message
+		)
+		throw error
+	}
 })
 
 export const userSlice = createSlice({
@@ -89,31 +141,43 @@ export const userSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(handleRegister.fulfilled, state => {
+				console.log('✅ handleRegister: состояние обновлено')
 				state.registerError = null
 			})
 			.addCase(handleRegister.rejected, (state, action) => {
+				console.log('❌ handleRegister: ошибка в состоянии', action.error)
 				state.registerError = action.error.message || 'Registration failed'
 			})
 			.addCase(handleLogin.fulfilled, (state, action) => {
+				console.log('✅ handleLogin: состояние обновлено', action.payload)
 				state.accessToken = action.payload.accessToken
 				state.userInfo = action.payload
 				state.loginError = null
 			})
 			.addCase(handleLogin.rejected, (state, action) => {
+				console.log('❌ handleLogin: ошибка в состоянии', action.error)
 				state.loginError =
 					action.error.message || 'Incorrect username or password'
 			})
 			.addCase(getCurrentUser.fulfilled, (state, action) => {
+				console.log('✅ getCurrentUser: состояние обновлено', action.payload)
 				state.userId = action.payload.id
 			})
 			.addCase(getCurrentUser.rejected, state => {
+				console.log('❌ getCurrentUser: ошибка в состоянии - токен очищен')
 				state.accessToken = null
 			})
 			.addCase(getUserById.pending, state => {
+				console.log('🔄 getUserById: начало загрузки')
 				state.profileLoading = true
 			})
 			.addCase(getUserById.fulfilled, (state, action) => {
+				console.log('✅ getUserById: состояние обновлено', action.payload)
 				state.profile = action.payload
+				state.profileLoading = false
+			})
+			.addCase(getUserById.rejected, (state, action) => {
+				console.log('❌ getUserById: ошибка в состоянии', action.error)
 				state.profileLoading = false
 			})
 	},
