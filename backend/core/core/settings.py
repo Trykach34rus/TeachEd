@@ -173,6 +173,7 @@ DJOSER = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
+    "http://localhost",
 ]
 
 # Redis
@@ -190,7 +191,7 @@ CELERY_TIMEZONE = 'UTC'
 # S3 Storage
 STORAGES = {
     "default": {  
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",  # Или "storages.backends.s3.S3Storage" для новых версий
+        "BACKEND": "storages.backends.s3.S3Storage",  # Или "storages.backends.s3.S3Storage" для новых версий
         "OPTIONS": {
             "bucket_name": os.environ.get('MINIO_BUCKET_NAME'),
             "access_key": os.environ.get('MINIO_USER'),

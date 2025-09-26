@@ -69,7 +69,7 @@ export default function SignUpModal({
 		onSubmit: values => {
 			dispatch(
 				handleRegister({
-					username: `${values.first_name} ${values.last_name}`,
+					username: `${values.first_name}_${values.last_name}`,
 					first_name: values.first_name,
 					last_name: values.last_name,
 					email: values.email,
