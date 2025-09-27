@@ -1,0 +1,21 @@
+.root {
+	height: 56px;
+	min-height: 56px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	border-radius: 16px;
+	padding: 0 24px;
+	background-color: #fff;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	.modalButton {
+		border: none;
+		background-color: #fff;
+		cursor: pointer;
+	}
+	img {
+		width: 40px;
+		height: 40px;
+	}
+}

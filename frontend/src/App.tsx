@@ -3,6 +3,7 @@ import './App.css'
 import AboutUs from './Pages/AboutUs'
 import Blog from './Pages/Blog'
 import ContactUs from './Pages/ContactUs'
+import Dashboard from './Pages/Dashboard/Dashboard'
 import Events from './Pages/Events'
 import Main from './Pages/Main'
 import Pricing from './Pages/Pricing'
@@ -19,6 +20,7 @@ export default function App() {
 					<Route path='/pricing' element={<Pricing />} />
 					<Route path='/contact' element={<ContactUs />} />
 					<Route path='*' element={<Navigate to='/' replace />} />
+					<Route path='/dashboard' element={<Dashboard />} />
 				</Routes>
 			</div>
 		</>
