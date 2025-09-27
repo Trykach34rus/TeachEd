@@ -67,7 +67,7 @@ const handleLogin = createAsyncThunk(
 	async (data: HandleLogin) => {
 		console.log('🔄 handleLogin: отправка запроса на вход', { data })
 		try {
-			const response = await axiosInstance.post('/user/login', data)
+			const response = await axiosInstance.post('auth/jwt/create/', data)
 			console.log('✅ handleLogin: успешный вход', response.data)
 			return response.data
 		} catch (error: any) {
@@ -89,7 +89,7 @@ const getCurrentUser = createAsyncThunk(
 		})
 
 		try {
-			const response = await axiosInstance.get('/user/me', {
+			const response = await axiosInstance.get('auth/users/me/', {
 				headers: {
 					Authorization: `Bearer ${state.user.accessToken}`,
 				},
@@ -112,7 +112,7 @@ const getCurrentUser = createAsyncThunk(
 const getUserById = createAsyncThunk('user/getUserById', async (id: number) => {
 	console.log('🔄 getUserById: получение пользователя по ID', { id })
 	try {
-		const response = await axiosInstance.get(`/user/${id}`)
+		const response = await axiosInstance.get(`auth/users/${id}/`)
 		console.log('✅ getUserById: данные пользователя получены', response.data)
 		return response.data
 	} catch (error: any) {

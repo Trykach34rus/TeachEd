@@ -14,4 +14,4 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 
 WORKDIR /app/core
 
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--reload", "--log-level", "debug", "--capture-output", "--access-logfile", "-", "--error-logfile", "-"]

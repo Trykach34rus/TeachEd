@@ -55,14 +55,13 @@ services:
     image: nginx:alpine
     depends_on:
       - backend
-      - frontend
+      # - frontend
     ports:
       - "80:80"
 
   frontend:
     build:
       context: ./frontend
-    #command: sh -c "cp -r /app/dist/* /dist/"
   
   minio:
     image: minio/minio:latest

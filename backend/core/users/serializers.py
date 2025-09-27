@@ -12,12 +12,13 @@ class UserCreateSerializer(UserCreateSerializer):
 
     class Meta(UserCreateSerializer.Meta):
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'is_teacher',)
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'password', 'is_teacher']
 
 class UserSerializer(UserSerializer):
     class Meta(UserSerializer.Meta):
         model = User
-        exclude = 'password',
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'password', 
+                  'is_teacher', 'avatar', 'knowledge_level']
 
 class UserAvatarSerializer(serializers.ModelSerializer):
     class Meta:
