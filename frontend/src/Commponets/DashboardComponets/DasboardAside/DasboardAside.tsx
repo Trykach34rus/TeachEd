@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import COMMUNITY from '../../../assets/COMMUNITY.svg'
 import JOURNAL from '../../../assets/JOURNAL.svg'
 import logOut from '../../../assets/LogOut.svg'
@@ -12,14 +13,15 @@ type NavItem = {
 	id: number
 	text: string
 	icon: string
+	path: string
 }
 
 export default function DasboardAside({}: Props) {
 	const navItems: NavItem[] = [
-		{ id: 1, text: 'CREATE NEW BOARD', icon: plas },
-		{ id: 2, text: 'SCHEDULE', icon: SCHEDULE },
-		{ id: 3, text: 'COMMUNITY', icon: COMMUNITY },
-		{ id: 4, text: 'JOURNAL', icon: JOURNAL },
+		{ id: 1, text: 'CREATE NEW BOARD', icon: plas, path: '/new-board' },
+		{ id: 2, text: 'SCHEDULE', icon: SCHEDULE, path: '/schedule' },
+		{ id: 3, text: 'COMMUNITY', icon: COMMUNITY, path: '/community' },
+		{ id: 4, text: 'JOURNAL', icon: JOURNAL, path: '/journal' },
 	]
 
 	return (
@@ -27,10 +29,16 @@ export default function DasboardAside({}: Props) {
 			<img src={logo} alt='TeachEd Logo' className={st.logo} />
 			<nav className={st.navContainer}>
 				{navItems.map(item => (
-					<div key={item.id} className={st.newBoard}>
+					<NavLink
+						to={item.path}
+						key={item.id}
+						className={({ isActive }) =>
+							isActive ? `${st.newBoard} ${st.newBoardActive}` : st.newBoard
+						}
+					>
 						<img src={item.icon} alt='' className={st.plas} />
 						{item.text}
-					</div>
+					</NavLink>
 				))}
 			</nav>
 			<div className={st.logOutContainer}>
