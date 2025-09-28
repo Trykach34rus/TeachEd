@@ -4,6 +4,8 @@ import logoWhite from '../../assets/Second-Logo-Black.svg'
 import logoBlack from '../../assets/TeachEd-Logo (1).svg'
 import closeImage from '../../assets/closeImage.svg'
 import burger from '../../assets/iconamoon_menu-burger-horizontal.svg'
+import SignInModal from '../Modals/SignInModal/SignInModal'
+import SignUpModal from '../Modals/SignUpModal/SignUpModal'
 import st from './Header.module.scss'
 
 const navItems = [
@@ -17,6 +19,9 @@ const navItems = [
 
 export default function Header() {
 	const [burgerOpen, setBurgerOpen] = useState<boolean>(false)
+	const [activeModal, setActiveModal] = useState<'signin' | 'signup' | null>(
+		null
+	)
 	const navigate = useNavigate()
 	const location = useLocation()
 	const [isLight, setIsLight] = useState<boolean>(false)
@@ -32,38 +37,66 @@ export default function Header() {
 		return () => window.removeEventListener('scroll', onScroll)
 	}, [location.pathname])
 
+	const openSignInModal = () => setActiveModal('signin')
+	// const openSignUpModal = () => setActiveModal('signup')
+	const closeModal = () => setActiveModal(null)
+
+	const switchToSignUp = () => {
+		setActiveModal('signup')
+	}
+
+	const switchToSignIn = () => {
+		setActiveModal('signin')
+	}
+
 	return (
-		<header className={`${st.root} ${isLight ? st.light : st.dark}`}>
-			<nav className={burgerOpen ? `${st.nav} ${st.nav_active}` : st.nav}>
-				<button className={st.close} onClick={() => setBurgerOpen(false)}>
-					Close <img src={closeImage} alt='' />
-				</button>
-				{navItems.map(item => (
-					<button
-						key={item.path}
-						onClick={() => {
-							navigate(item.path)
-							setBurgerOpen(false)
-						}}
-						className={st.navItem}
-					>
-						{item.label}
+		<>
+			<header className={`${st.root} ${isLight ? st.light : st.dark}`}>
+				<nav className={burgerOpen ? `${st.nav} ${st.nav_active}` : st.nav}>
+					<button className={st.close} onClick={() => setBurgerOpen(false)}>
+						Close <img src={closeImage} alt='' />
 					</button>
-				))}
-				<button className={st.langMobile}>🌐 English</button>
-			</nav>
+					{navItems.map(item => (
+						<button
+							key={item.path}
+							onClick={() => {
+								navigate(item.path)
+								setBurgerOpen(false)
+							}}
+							className={st.navItem}
+						>
+							{item.label}
+						</button>
+					))}
+					<button className={st.langMobile}>🌐 English</button>
+				</nav>
 
-			<div className={st.logo}>
-				<img src={isLight ? logoWhite : logoBlack} alt='Logo' />
-			</div>
+				<div className={st.logo}>
+					<img src={isLight ? logoWhite : logoBlack} alt='Logo' />
+				</div>
 
-			<div className={st.right}>
-				<button className={st.lang}>🌐 English</button>
-				<button className={st.signup}>Sign Up</button>
-				<button className={st.burger} onClick={() => setBurgerOpen(true)}>
-					<img src={burger} alt='Open menu' />
-				</button>
-			</div>
-		</header>
+				<div className={st.right}>
+					<button className={st.lang}>🌐 English</button>
+					<button className={st.signup} onClick={openSignInModal}>
+						Sign In
+					</button>
+					<button className={st.burger} onClick={() => setBurgerOpen(true)}>
+						<img src={burger} alt='Open menu' />
+					</button>
+				</div>
+			</header>
+
+			<SignInModal
+				isOpen={activeModal === 'signin'}
+				onClose={closeModal}
+				onSwitchToSignUp={switchToSignUp}
+			/>
+
+			<SignUpModal
+				isOpen={activeModal === 'signup'}
+				onClose={closeModal}
+				onSwitchToSignIn={switchToSignIn}
+			/>
+		</>
 	)
 }

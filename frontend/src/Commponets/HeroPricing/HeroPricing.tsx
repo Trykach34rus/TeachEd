@@ -7,7 +7,7 @@ export default function HeroPricing() {
       <section className={st.root}>
         <div className={st.container}>
           <div className={st.pricingCat}>
-            <img src={PricingCat} alt="pricing Cat" />
+            <img className={st.pricingCatImg} src={PricingCat} alt="pricing Cat" />
           </div>
           <h1 className={st.titlePricing}>
             <span>Build educational products </span>
