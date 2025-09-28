@@ -11,6 +11,7 @@
 	position: relative;
 
 	.title {
+		padding-top: 100px;
 		font-family: 'Geometria', sans-serif;
 		font-weight: 900;
 		font-size: 48px;
@@ -22,7 +23,7 @@
 
 	.container {
 		width: 1011px;
-		min-height: 925px;
+
 		z-index: 50;
 		flex-shrink: 0;
 		display: flex;
