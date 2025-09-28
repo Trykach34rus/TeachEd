@@ -11,6 +11,6 @@ export default function ProtectedRoute({ children }: Props) {
 	if (accessToken) {
 		return children
 	} else {
-		return <Navigate to='/login' />
+		return <Navigate to='/' />
 	}
 }

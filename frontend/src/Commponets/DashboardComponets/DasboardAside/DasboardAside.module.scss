@@ -29,6 +29,8 @@
 		display: flex;
 		align-items: center;
 		cursor: pointer;
+		color: black;
+		text-decoration: none;
 
 		&:hover {
 			color: #ff4785;
@@ -41,6 +43,9 @@
 		&:active {
 			color: #ff4785;
 		}
+	}
+	.newBoardActive {
+		color: #ff4785;
 	}
 
 	.logOutContainer {
