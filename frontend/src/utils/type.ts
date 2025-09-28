@@ -106,6 +106,9 @@ type Crypto = {
 	wallet: string
 	network: string
 }
+export type blogPosts = {
+	id: number
+}
 export type UserT = {
 	id: number
 	firstName: string
