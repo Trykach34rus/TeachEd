@@ -7,7 +7,7 @@ import { store } from './redux/store.ts'
 
 createRoot(document.getElementById('root')!).render(
 	<Provider store={store}>
-		<BrowserRouter basename='/'>
+		<BrowserRouter basename='/TeachEd/'>
 			<App />
 		</BrowserRouter>
 	</Provider>

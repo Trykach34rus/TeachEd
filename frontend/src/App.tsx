@@ -8,6 +8,7 @@ import Journal from './Pages/Journal/Journal'
 import Main from './Pages/Main'
 import NewBoard from './Pages/NewBoard/NewBoard'
 import Pricing from './Pages/Pricing'
+import TeacherSettings from './Pages/TeacherSettings/TeacherSettings'
 
 export default function App() {
 	return (
@@ -20,6 +21,7 @@ export default function App() {
 					<Route path='/about' element={<AboutUs />} />
 					<Route path='/pricing' element={<Pricing />} />
 					<Route path='/contact' element={<ContactUs />} />
+					<Route path='/teacher-settings' element={<TeacherSettings />} />
 					<Route path='*' element={<Navigate to='/' replace />} />
 					<Route path='/journal' element={<Journal />} />
 					<Route path='/new-board' element={<NewBoard />} />

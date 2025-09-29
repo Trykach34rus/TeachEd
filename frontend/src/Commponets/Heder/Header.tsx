@@ -38,7 +38,6 @@ export default function Header() {
 	}, [location.pathname])
 
 	const openSignInModal = () => setActiveModal('signin')
-	// const openSignUpModal = () => setActiveModal('signup')
 	const closeModal = () => setActiveModal(null)
 
 	const switchToSignUp = () => {
@@ -47,6 +46,11 @@ export default function Header() {
 
 	const switchToSignIn = () => {
 		setActiveModal('signin')
+	}
+
+	const handleSettingsClick = () => {
+		navigate('/teacher-settings')
+		setBurgerOpen(false) // Закрываем бургер меню на мобилке
 	}
 
 	return (
@@ -68,7 +72,9 @@ export default function Header() {
 							{item.label}
 						</button>
 					))}
-					<button className={st.langMobile}>🌐 English</button>
+					<button className={st.langMobile} onClick={handleSettingsClick}>
+						🌐 English
+					</button>
 				</nav>
 
 				<div className={st.logo}>
@@ -76,7 +82,9 @@ export default function Header() {
 				</div>
 
 				<div className={st.right}>
-					<button className={st.lang}>🌐 English</button>
+					<button className={st.lang} onClick={handleSettingsClick}>
+						🌐 English
+					</button>
 					<button className={st.signup} onClick={openSignInModal}>
 						Sign In
 					</button>
