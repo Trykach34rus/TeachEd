@@ -164,3 +164,8 @@ export type FormData = {
   body: string;
   tags: string[];
 };
+export type StepsItem = {
+  id: string;
+  title: string;
+  text: string;
+};

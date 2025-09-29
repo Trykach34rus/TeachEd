@@ -1,11 +1,35 @@
 html,
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 body,
 #root {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+}
+
+@font-face {
+  font-family: Geometria;
+  font-weight: 600;
+  src: url(./assets/Geometria-Medium.ttf);
+}
+
+@font-face {
+  font-family: Geometria;
+  font-weight: 700;
+  src: url(./assets/Geometria-Bold.ttf);
+}
+
+@font-face {
+  font-family: Geometria;
+  font-weight: 800;
+  src: url(./assets/Geometria-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Geometria;
+  font-weight: 900;
+  src: url(./assets/Geometria-Heavy.ttf);
 }
