@@ -29,6 +29,7 @@ interface UserState {
 	profileLoading: boolean
 	profilePostsLoading: boolean
 	isMobile: boolean
+	avatarUploadLoading: boolean
 }
 
 const initialState: UserState = {
@@ -42,6 +43,7 @@ const initialState: UserState = {
 	profileLoading: false,
 	profilePostsLoading: false,
 	isMobile: false,
+	avatarUploadLoading: false,
 }
 
 const handleRegister = createAsyncThunk(
@@ -124,6 +126,66 @@ const getUserById = createAsyncThunk('user/getUserById', async (id: number) => {
 	}
 })
 
+const uploadAvatar = createAsyncThunk(
+	'user/uploadAvatar',
+	async (file: File, { getState }) => {
+		const state = getState() as RootState
+		console.log('🔄 uploadAvatar: загрузка аватара', { file })
+
+		const formData = new FormData()
+		formData.append('avatar', file)
+
+		try {
+			const response = await axiosInstance.patch(
+				`auth/users/${state.user.userInfo?.id}/`,
+				formData,
+				{
+					headers: {
+						'Content-Type': 'multipart/form-data',
+						Authorization: `Bearer ${state.user.accessToken}`,
+					},
+				}
+			)
+			console.log('✅ uploadAvatar: аватар успешно загружен', response.data)
+			return response.data
+		} catch (error: any) {
+			console.error(
+				'❌ uploadAvatar: ошибка',
+				error.response?.data || error.message
+			)
+			throw error
+		}
+	}
+)
+
+const updateProfile = createAsyncThunk(
+	'user/updateProfile',
+	async (data: { first_name?: string; last_name?: string }, { getState }) => {
+		const state = getState() as RootState
+		console.log('🔄 updateProfile: обновление профиля', { data })
+
+		try {
+			const response = await axiosInstance.patch(
+				`auth/users/${state.user.userInfo?.id}/`,
+				data,
+				{
+					headers: {
+						Authorization: `Bearer ${state.user.accessToken}`,
+					},
+				}
+			)
+			console.log('✅ updateProfile: профиль успешно обновлен', response.data)
+			return response.data
+		} catch (error: any) {
+			console.error(
+				'❌ updateProfile: ошибка',
+				error.response?.data || error.message
+			)
+			throw error
+		}
+	}
+)
+
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
@@ -133,9 +195,15 @@ export const userSlice = createSlice({
 		},
 		clearToken: state => {
 			state.accessToken = null
+			state.userInfo = null
 		},
 		setMobile: (state, action: PayloadAction<boolean>) => {
 			state.isMobile = action.payload
+		},
+		updateUserInfo: (state, action: PayloadAction<Partial<UserT>>) => {
+			if (state.userInfo) {
+				state.userInfo = { ...state.userInfo, ...action.payload }
+			}
 		},
 	},
 	extraReducers: builder => {
@@ -150,8 +218,7 @@ export const userSlice = createSlice({
 			})
 			.addCase(handleLogin.fulfilled, (state, action) => {
 				console.log('✅ handleLogin: состояние обновлено', action.payload)
-				state.accessToken = action.payload.accessToken
-				state.userInfo = action.payload
+				state.accessToken = action.payload.access
 				state.loginError = null
 			})
 			.addCase(handleLogin.rejected, (state, action) => {
@@ -161,11 +228,13 @@ export const userSlice = createSlice({
 			})
 			.addCase(getCurrentUser.fulfilled, (state, action) => {
 				console.log('✅ getCurrentUser: состояние обновлено', action.payload)
+				state.userInfo = action.payload
 				state.userId = action.payload.id
 			})
 			.addCase(getCurrentUser.rejected, state => {
 				console.log('❌ getCurrentUser: ошибка в состоянии - токен очищен')
 				state.accessToken = null
+				state.userInfo = null
 			})
 			.addCase(getUserById.pending, state => {
 				console.log('🔄 getUserById: начало загрузки')
@@ -180,9 +249,38 @@ export const userSlice = createSlice({
 				console.log('❌ getUserById: ошибка в состоянии', action.error)
 				state.profileLoading = false
 			})
+			.addCase(uploadAvatar.pending, state => {
+				console.log('🔄 uploadAvatar: начало загрузки')
+				state.avatarUploadLoading = true
+			})
+			.addCase(uploadAvatar.fulfilled, (state, action) => {
+				console.log('✅ uploadAvatar: состояние обновлено', action.payload)
+				if (state.userInfo) {
+					state.userInfo = { ...state.userInfo, ...action.payload }
+				}
+				state.avatarUploadLoading = false
+			})
+			.addCase(uploadAvatar.rejected, (state, action) => {
+				console.log('❌ uploadAvatar: ошибка в состоянии', action.error)
+				state.avatarUploadLoading = false
+			})
+			.addCase(updateProfile.fulfilled, (state, action) => {
+				console.log('✅ updateProfile: состояние обновлено', action.payload)
+				if (state.userInfo) {
+					state.userInfo = { ...state.userInfo, ...action.payload }
+				}
+			})
 	},
 })
 
-export const { setUser, clearToken, setMobile } = userSlice.actions
-export { getCurrentUser, getUserById, handleLogin, handleRegister }
+export const { setUser, clearToken, setMobile, updateUserInfo } =
+	userSlice.actions
+export {
+	getCurrentUser,
+	getUserById,
+	handleLogin,
+	handleRegister,
+	updateProfile,
+	uploadAvatar,
+}
 export default userSlice.reducer
