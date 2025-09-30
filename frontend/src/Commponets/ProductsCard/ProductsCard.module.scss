@@ -1,10 +1,31 @@
 .root {
   padding: 0 5%;
   background: #f7f7f7;
+  margin: 0 auto;
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   .container {
     padding-top: 48px;
+    padding-bottom: 48px;
+    background: url("../../assets/bg-contactCard.png") no-repeat;
+    background-position: calc(50% - 80px) calc(50% + 80px);
   }
+
   .productsContent {
     display: flex;
     justify-content: space-between;
@@ -15,10 +36,11 @@
   .productsCard {
     background-color: #fff;
     width: 494px;
-    height: 775px;
+    height: 683px;
     border-radius: 24px;
     padding: 24px;
   }
+
   .productsCardHead {
     display: flex;
     flex-direction: column;
@@ -29,13 +51,18 @@
     }
 
     h2 {
+      margin-top: 24px;
+      font-family: Geometria;
       color: #000;
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 30px;
+      font-weight: 800;
       line-height: 100%;
     }
+
     p {
+      margin-top: 24px;
       color: #5c5c5c;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 400;
       line-height: 100%;
@@ -43,10 +70,13 @@
   }
 
   .productsCardInfo {
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
+    gap: 8px;
 
   }
+
   .productsCardPrice {
     display: flex;
     justify-content: space-between;
@@ -54,15 +84,17 @@
 
     h1 {
       color: #000;
+      font-family: Mulish;
       font-size: 40px;
       font-weight: 700;
       line-height: 100%;
     }
 
     p {
-      width: 70px;
+      width: 85px;
       height: 32px;
       color: #000;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 500;
       line-height: 100%;
@@ -87,6 +119,7 @@
       align-items: center;
       justify-content: center;
       color: #5c5c5c;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 700;
       line-height: 100%;
@@ -104,6 +137,7 @@
       align-items: center;
       justify-content: center;
       color: #ffffff;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 900;
       line-height: 100%;
@@ -121,6 +155,7 @@
       align-items: center;
       justify-content: center;
       color: #ff4785;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 700;
       line-height: 100%;
@@ -128,12 +163,13 @@
   }
 
   .productsCardFeatures {
-
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
 
     h3 {
       color: #000;
+      font-family: Mulish;
       font-size: 20px;
       font-weight: 700;
       line-height: 100%;
@@ -141,8 +177,10 @@
   }
 
   .productsFeatures {
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
+    gap: 8px;
   }
 
   .productsFeaturesItem {
@@ -157,14 +195,14 @@
 
     p {
       color: #000;
+      font-family: Mulish;
       font-size: 16px;
       font-weight: 400;
       line-height: 100%;
     }
   }
-  
-  
-  
+
+
   @media (max-width: 1231px) {
     .productsContent {
       display: flex;
@@ -223,7 +261,6 @@
         line-height: 100%;
       }
     }
-
 
 
     .productsFeatures {
