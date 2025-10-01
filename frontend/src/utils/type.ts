@@ -52,11 +52,6 @@ export type Reaction = {
 	likes: number
 	dislikes: number
 }
-export type StepsItem = {
-	id: string
-	title: string
-	text: string
-}
 export type PostT = {
 	id: number
 	title: string
@@ -116,10 +111,9 @@ export type blogPosts = {
 }
 export type UserT = {
 	id: number
-	first_name: string
-	last_name: string
+	firstName: string
+	lastName: string
 	maidenName: string
-	avatar: string
 	age: number
 	gender: string
 	email: string
@@ -169,4 +163,9 @@ export type FormData = {
 	title: string
 	body: string
 	tags: string[]
+}
+export type StepsItem = {
+	id: string
+	title: string
+	text: string
 }

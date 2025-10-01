@@ -62,7 +62,8 @@ export default function ProductsCard() {
 							<div className={st.productsCardInfo}>
 								<div className={st.productsCardPrice}>
 									<h1>from $2</h1>
-									<p>/student per month</p>
+									<p>/student
+										per year</p>
 								</div>
 								<div className={st.productsCardButtons}>
 									<button className={st.productsButtonStudents}>

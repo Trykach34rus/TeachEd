@@ -5,7 +5,6 @@ import st from './Footer.module.scss'
 import { useNavigate } from 'react-router-dom'
 
 const navItems = [
-	{ path: '/', label: 'Home' },
 	{ path: '/blog', label: 'Blog' },
 	{ path: '/events', label: 'Events' },
 	{ path: '/about', label: 'About us' },

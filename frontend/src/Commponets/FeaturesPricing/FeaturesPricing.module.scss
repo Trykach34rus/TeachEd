@@ -1,9 +1,24 @@
 .root {
   padding: 0 5%;
+  margin: 0 auto;
   background: #f7f7f7;
   color: #000;
-  padding-top: 48px;
   padding-bottom: 100px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   .featuresContent {
     background-color: #ffffff;
@@ -13,9 +28,10 @@
 
   .titleFeatures {
     text-transform: uppercase;
-    background: linear-gradient(100deg, #e55d87, #66bddf);
+    background: linear-gradient(82deg, #e55d87 0%, #e55d87 40%, #66bddf 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: Geometria;
     font-size: 48px;
     line-height: 100%;
     font-weight: 900;
@@ -28,6 +44,7 @@
   .featuresCategory {
     display: flex;
     color: #000;
+    font-family: Mulish;
     font-size: 24px;
     font-weight: 700;
     line-height: 100%;
@@ -68,11 +85,12 @@
   //Показатели
   .featuresIndicators {
     margin-top: 48px;
-    padding: 16px 0;
+
   }
 
   .featuresIndicatorsRow {
     display: flex;
+    padding: 18px 0;
     border-bottom: 1px solid #d7d7d7;
     border-top: 1px solid #d7d7d7;
   }
@@ -83,6 +101,7 @@
     gap: 24px;
     align-items: center;
     color: #000;
+    font-family: Mulish;
     font-size: 16px;
     font-weight: 700;
     line-height: 100%;
@@ -101,6 +120,7 @@
   }
 
   .featuresIndicatorsMd span {
+    font-family: Mulish;
     font-weight: 700;
     font-size: 16px;
     line-height: 100%;

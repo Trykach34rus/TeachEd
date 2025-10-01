@@ -29,8 +29,12 @@ export default function StepsAbout() {
       <section className={st.root}>
         <div className={st.firstSteps}>
           <div className={st.firstStepsInfo}>
-            <h2>First steps</h2>
-            <img src={FirstStepsAboutIcon} alt="arrow icon" />
+            <h2 className={st.firstStepsTitle}>First steps</h2>
+            <img
+              src={FirstStepsAboutIcon}
+              alt="arrow icon"
+              className={st.firstStepsImg}
+            />
           </div>
           <div className={st.firstStepsCard}>
             <div className={st.cardFounder}>
@@ -57,7 +61,7 @@ export default function StepsAbout() {
             </p>
           </div>
         </div>
-        <div className={st.Steps}>
+        <div className={st.steps}>
           {stepsObj.map((steps) => (
             <div key={steps.id} className={st.step}>
               <h3 className={st.stepsTitle}>

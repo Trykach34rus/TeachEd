@@ -1,0 +1,139 @@
+.root {
+  padding: 48px 5%;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .firstSteps {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 48px;
+  }
+
+  .firstStepsInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 64px;
+  }
+
+  .firstStepsTitle {
+    font-family: Geometria;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+  }
+
+  .firstStepsImg {
+    width: 60px;
+    height: 64px;
+  }
+
+  .firstStepsCard {
+    width: 748px;
+    padding: 24px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+    border-radius: 24px;
+  }
+
+  .cardFounder {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .founderPic {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .cardFounderInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cardFounderTitle {
+    font-family: Geometria;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+
+  .cardFounderDescription {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #ff4785;
+  }
+
+  .cardFounderText {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+  }
+
+  .steps {
+    padding: 48px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .step {
+    border-top: 1px solid #d7d7d7;
+    padding: 24px 0 48px;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .stepsTitle {
+    font-family: Mulish;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    width: 450px;
+  }
+
+  .stepsText {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: auto;
+    letter-spacing: 0%;
+    width: 712px;
+  }
+}
