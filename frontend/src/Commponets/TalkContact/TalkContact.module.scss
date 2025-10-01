@@ -1,7 +1,24 @@
 .root {
   padding: 0 5%;
+  margin: 0 auto;
   background: #f7f7f7;
   padding-bottom: 100px;
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   .container {
     background-color: #fff;
@@ -13,135 +30,180 @@
 
   .talkContent {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 48px;
+  }
 
-    .talkValide {
-      width: 692px;
-      height: 594px;
+  .talkValide {
+    width: 692px;
+    height: 594px;
 
+    p {
+      margin-top: 24px;
+      font-family: Mulish;
+      font-size: 16px;
+      font-weight: 400;
+      color: #222222;
+      line-height: 150%;
+    }
+  }
 
-      p {
-        margin: 24px 0 0 0;
-        font-size: 16px;
-        font-weight: 400;
-        color: #222222;
-        line-height: 150%;
-      }
+  .titleTalk {
+    font-family: Geometria;
+    font-size: 64px;
+    font-weight: 800;
+    color: #000;
+    line-height: 100%;
+  }
+
+  .talkForm {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 692px;
+
+    input {
+      border: 1px solid #D7D7D7;
+      border-radius: 16px;
+      padding: 16px 24px;
     }
 
-    .titleTalk {
-      margin: 0;
-      font-size: 64px;
-      font-weight: 800;
-      color: #000;
+    input::placeholder {
+      color: #A8A8A8;
+      font-family: Mulish;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+  }
+
+  .talkMessage {
+    height: 192px;
+  }
+
+  .talkMessage::placeholder {
+    display: flex;
+    align-items: start;
+  }
+
+  .buttonTalk {
+    width: 100%;
+    background-color: #ff4785;
+    border-radius: 8px;
+    height: 64px;
+    border: none;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: Mulish;
+      font-size: 16px;
+      font-weight: 900;
       line-height: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  .infoTalk {
+    width: 692px;
+    height: 594px;
+    border: 1px solid #D7D7D7;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .talkImage {
+    margin: 8px;
+    width: 256px;
+    height: 256px;
+  }
+
+  .contactTalk {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .contactTalkText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: #000;
+      font-family: Mulish;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    h2 {
+      color: #000;
+      font-family: Geometria;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+  }
+
+  .talkNetwork {
+    margin-top: 4px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  @media (max-width: 1697px) {
+    .talkContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
+
+
+  @media (max-width: 823px) {
+
+    .titleTalk {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .talkValide {
+      width: 500px;
     }
 
     .talkForm {
-      margin: 24px 0 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      width: 692px;
-
-      input {
-        border: 1px solid #D7D7D7;
-        border-radius: 16px;
-        padding: 16px 24px;
-      }
-
-      input::placeholder {
-        color: #A8A8A8;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-
-    .talkMessage {
-      height: 192px;
-    }
-
-    .talkMessage::placeholder {
-      display: flex;
-      align-items: start;
-    }
-
-    .buttonTalk {
-      width: 100%;
-      background-color: #ff4785;
-      border-radius: 8px;
-      height: 64px;
-      border: none;
-
-      span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: 900;
-        line-height: 100%;
-        text-transform: uppercase;
-      }
+      width: 500px;
     }
 
     .infoTalk {
-      width: 692px;
-      height: 594px;
-      border: 1px solid #D7D7D7;
-      border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: 500px;
     }
+  }
 
-    .talkImage {
-      margin: 8px;
-      width: 256px;
-      height: 256px;
+  @media (max-width: 584px) {
+    padding: 0;
+    margin: 0;
+
+    .container {
+      display: none;
     }
-
-    .contactTalk {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      justify-content: center;
-
-    }
-
-    .contactTalkText {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: center;
-      justify-content: center;
-
-      p {
-        margin: 0;
-        color: #000;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-      h2 {
-        margin: 0;
-        color: #000;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: 150%;
-      }
-    }
-
-    .talkNetwork {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
   }
 
 
