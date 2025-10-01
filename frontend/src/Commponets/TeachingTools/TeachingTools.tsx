@@ -6,6 +6,7 @@ import TechingToolsSvg4 from '../../assets/TechingTools-svg-4.svg'
 import TechingToolsSvg5 from '../../assets/TechingTools-svg-5.svg'
 import { ToolItem } from '../../utils/type'
 import st from './TeachingTools.module.scss'
+import bg from "../../assets/background-enhance.png";
 
 const toolsData: ToolItem[] = [
 	{
@@ -46,7 +47,7 @@ const toolsData: ToolItem[] = [
 ]
 export default function TeachingTools() {
 	return (
-		<section className={st.root}>
+		<section className={st.root} style={{ backgroundImage: `url(${bg})` }}>
 			<h2 className={st.title}>
 				THE TOOLS THAT WILL <span>BOOST YOUR TEACHING</span>
 			</h2>

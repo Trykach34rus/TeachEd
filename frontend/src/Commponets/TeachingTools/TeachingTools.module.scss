@@ -1,157 +1,176 @@
 .root {
-	width: 100%;
-	height: 872px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 48px;
-	background-color: #0f0f0f;
+  padding: 100px 5%;
+  background-color: #111111;
+  background-image: url('../../assets/background-enchance.png');
+  background-repeat: repeat;
 
-	.title {
-		width: 100%;
-		height: 60px;
-		font-family: 'Geometria', sans-serif;
-		font-weight: 900;
-		font-size: 48px;
-		line-height: 100%;
-		text-align: center;
-		text-transform: uppercase;
-		color: #fff;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-		span {
-			background: linear-gradient(30deg, #e55d87 0%, #65bedf 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-	}
+  .title {
+    width: 100%;
+    height: 60px;
+    font-family: Geometria;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
 
-	.content {
-		display: flex;
-		gap: 48px;
-		align-items: center;
-	}
+    span {
+      background: linear-gradient(30deg, #e55d87 0%, #65bedf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 
-	.imageBlock {
-		flex: 1;
+  .content {
+    margin-top: 48px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-		img {
-			width: 100%;
-			height: auto;
-			border-radius: 24px;
-		}
-	}
+  .imageBlock {
+    flex: 1;
+    width: 762px;
+height: 564px;
 
-	.tools {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-		padding-bottom: 100px;
-	}
+    img {
 
-	.toolCard {
-		display: flex;
-		gap: 16px;
-		align-items: center;
+      border-radius: 24px;
+    }
+  }
 
-		h3 {
-			font-family: 'Geometria', sans-serif;
-			font-weight: 700;
-			font-size: 20px;
-			color: #fff;
-			margin-bottom: 8px;
-		}
+  .tools {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    width: 226px;
+  }
 
-		p {
-			font-size: 16px;
-			color: #cfcfcf;
-			line-height: 140%;
-		}
-	}
+  .toolCard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    width: 226px;
+
+
+    h3 {
+      font-family: Geometria;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+
+    }
+
+    p {
+      margin-top: 8px;
+      font-family: Mulish;
+      font-size: 14px;
+      color: #fff;
+      line-height: 150%;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
-	.root {
-		height: auto;
-		padding-top: 80px;
-		gap: 40px;
+  .root {
+    height: auto;
+    padding-top: 80px;
+    gap: 40px;
 
-		.title {
-			height: auto;
-			font-size: 36px;
-			line-height: 1.2;
-		}
+    .title {
+      height: auto;
+      font-size: 36px;
+      line-height: 1.2;
+    }
 
-		.content {
-			flex-direction: column;
-			gap: 40px;
-			width: 100%;
-			max-width: 600px;
-		}
+    .content {
+      flex-direction: column;
+      gap: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
 
-		.imageBlock {
-			width: 100%;
+    .imageBlock {
+      width: 100%;
 
-			img {
-				max-width: 500px;
-				margin: 0 auto;
-				display: block;
-			}
-		}
+      img {
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
 
-		.tools {
-			width: 100%;
-			gap: 24px;
-		}
+    .tools {
+      width: 100%;
+      gap: 24px;
+    }
 
-		.toolCard {
-			gap: 20px;
+    .toolCard {
+      gap: 20px;
 
-			h3 {
-				font-size: 18px;
-			}
+      h3 {
+        font-size: 18px;
+      }
 
-			p {
-				font-size: 15px;
-			}
-		}
-	}
+      p {
+        font-size: 15px;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
-	.root {
-		padding-top: 60px;
+  .root {
+    padding-top: 60px;
 
-		.title {
-			font-size: 26px;
-		}
+    .title {
+      font-size: 26px;
+    }
 
-		.content {
-			gap: 32px;
-		}
+    .content {
+      gap: 32px;
+    }
 
-		.imageBlock img {
-			max-width: 100%;
-		}
+    .imageBlock img {
+      max-width: 100%;
+    }
 
-		.tools {
-			gap: 20px;
-		}
+    .tools {
+      gap: 20px;
+    }
 
-		.toolCard {
-			flex-direction: column;
-			text-align: center;
-			gap: 12px;
+    .toolCard {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
 
-			h3 {
-				font-size: 16px;
-				margin-bottom: 4px;
-			}
+      h3 {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
 
-			p {
-				font-size: 14px;
-			}
-		}
-	}
+      p {
+        font-size: 14px;
+      }
+    }
+  }
 }
