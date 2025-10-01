@@ -1,9 +1,12 @@
+// src/Pages/NewBoard/NewBoard.tsx
+import { useNavigate } from 'react-router-dom'
 import DasboardAside from '../../Commponets/DashboardComponets/DasboardAside/DasboardAside'
 import DasboardMiniProfil from '../../Commponets/DashboardComponets/DasboardMiniProfil/DasboardMiniProfil'
 import plas from '../../assets/Plas.svg'
 import st from './NewBoard.module.scss'
 
 type Props = {}
+
 const templatesObj = [
 	{ image: plas, title: 'New Board' },
 	{ image: plas, title: '+Images' },
@@ -15,6 +18,12 @@ const templatesObj = [
 ]
 
 export default function NewBoard({}: Props) {
+	const navigate = useNavigate()
+
+	const handleNewBoardClick = () => {
+		navigate('/whiteboard')
+	}
+
 	return (
 		<div className={st.root}>
 			<DasboardAside />
@@ -25,7 +34,10 @@ export default function NewBoard({}: Props) {
 					<div className={st.templatesWrapper}>
 						{templatesObj.map((template, index) => (
 							<div key={index} className={st.template}>
-								<button className={st.addButton}>
+								<button
+									className={st.addButton}
+									onClick={index === 0 ? handleNewBoardClick : undefined}
+								>
 									<img src={template.image} alt='' />
 								</button>
 								<p className={st.title}>{template.title}</p>

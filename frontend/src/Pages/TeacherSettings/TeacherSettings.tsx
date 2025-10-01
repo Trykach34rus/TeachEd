@@ -1,6 +1,25 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom' // Добавляем useNavigate
+import { useNavigate } from 'react-router-dom'
 import st from './TeacherSettings.module.scss'
+
+type DayOfWeek =
+	| 'monday'
+	| 'tuesday'
+	| 'wednesday'
+	| 'thursday'
+	| 'friday'
+	| 'saturday'
+	| 'sunday'
+
+interface Schedule {
+	monday: boolean
+	tuesday: boolean
+	wednesday: boolean
+	thursday: boolean
+	friday: boolean
+	saturday: boolean
+	sunday: boolean
+}
 
 interface Language {
 	id: string
@@ -14,14 +33,14 @@ interface Specialization {
 }
 
 export default function TeacherSettings() {
-	const navigate = useNavigate() // Добавляем навигацию
+	const navigate = useNavigate()
 	const [languages, setLanguages] = useState<Language[]>([
 		{ id: '1', language: 'English', level: 'C2' },
 	])
 	const [specializations, setSpecializations] = useState<Specialization[]>([
 		{ id: '1', name: 'Business English' },
 	])
-	const [schedule, setSchedule] = useState({
+	const [schedule, setSchedule] = useState<Schedule>({
 		monday: true,
 		tuesday: true,
 		wednesday: true,
@@ -30,6 +49,16 @@ export default function TeacherSettings() {
 		saturday: false,
 		sunday: false,
 	})
+
+	const days: DayOfWeek[] = [
+		'monday',
+		'tuesday',
+		'wednesday',
+		'thursday',
+		'friday',
+		'saturday',
+		'sunday',
+	]
 
 	const addLanguage = () => {
 		setLanguages([
@@ -69,12 +98,12 @@ export default function TeacherSettings() {
 		)
 	}
 
-	const toggleDay = (day: string) => {
+	const toggleDay = (day: DayOfWeek) => {
 		setSchedule(prev => ({ ...prev, [day]: !prev[day] }))
 	}
 
 	const handleCancel = () => {
-		navigate('/new-board') // Возвращаем на доску
+		navigate('/new-board')
 	}
 
 	return (
@@ -289,10 +318,12 @@ export default function TeacherSettings() {
 						<div className={st.field}>
 							<label>Weekly Availability</label>
 							<div className={st.availability}>
-								{Object.entries(schedule).map(([day, available]) => (
+								{days.map(day => (
 									<button
 										key={day}
-										className={`${st.dayToggle} ${available ? st.active : ''}`}
+										className={`${st.dayToggle} ${
+											schedule[day] ? st.active : ''
+										}`}
 										onClick={() => toggleDay(day)}
 									>
 										{day.charAt(0).toUpperCase() + day.slice(1)}

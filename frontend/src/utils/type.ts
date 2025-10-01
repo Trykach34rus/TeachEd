@@ -52,6 +52,11 @@ export type Reaction = {
 	likes: number
 	dislikes: number
 }
+export type StepsItem = {
+	id: string
+	title: string
+	text: string
+}
 export type PostT = {
 	id: number
 	title: string

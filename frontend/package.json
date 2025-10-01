@@ -14,15 +14,21 @@
 	"dependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.1",
+		"@excalidraw/excalidraw": "^0.18.0",
 		"@mui/material": "^7.3.2",
 		"@mui/x-data-grid": "^8.12.1",
 		"@reduxjs/toolkit": "^2.9.0",
 		"axios": "^1.12.2",
 		"formik": "^2.4.6",
+		"gifler": "^0.1.0",
+		"konva": "^9.3.22",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-dropzone": "^14.3.8",
+		"react-konva": "^18.2.14",
 		"react-redux": "^9.2.0",
-		"react-router-dom": "^7.9.1"
+		"react-router-dom": "^7.9.1",
+		"uuid": "^13.0.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.17.0",

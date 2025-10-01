@@ -50,7 +50,7 @@ export default function Header() {
 
 	const handleSettingsClick = () => {
 		navigate('/teacher-settings')
-		setBurgerOpen(false) // Закрываем бургер меню на мобилке
+		setBurgerOpen(false)
 	}
 
 	return (
