@@ -111,12 +111,13 @@ export type blogPosts = {
 }
 export type UserT = {
 	id: number
-	firstName: string
-	lastName: string
+	first_name: string
+	last_name: string
 	maidenName: string
 	age: number
 	gender: string
 	email: string
+	avatar: string
 	phone: string
 	username: string
 	password: string

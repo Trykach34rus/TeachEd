@@ -59,9 +59,9 @@ interface WhiteboardElement {
 	rotation?: number
 	scaleX?: number
 	scaleY?: number
-	children?: WhiteboardElement[] // Для sticky (Group)
-	isPlaying?: boolean // Для видео
-	isMuted?: boolean // Для видео
+	children?: WhiteboardElement[]
+	isPlaying?: boolean
+	isMuted?: boolean
 }
 
 interface LocalWhiteboardProps {
@@ -137,7 +137,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		return { width: mediaWidth * ratio, height: mediaHeight * ratio }
 	}
 
-	// Анимация для video/gif
 	useEffect(() => {
 		let anim: number | null = null
 		const hasAnimated = elements.some(
@@ -155,7 +154,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		}
 	}, [elements])
 
-	// Добавление uploadedFiles
 	useEffect(() => {
 		uploadedFiles.forEach(file => {
 			if (processedFilesRef.current.has(file.url)) return
@@ -184,9 +182,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 				const img = new window.Image()
 				img.src = file.url
 				img.onload = () => {
-					console.log(
-						`Image loaded: ${file.file.name}, width: ${img.width}, height: ${img.height}`
-					)
 					const scaled = scaleMedia(img.width, img.height, 400, 300)
 					addElement({
 						id: uuidv4(),
@@ -202,24 +197,16 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 						fileName: file.file.name,
 					})
 					if (file.type === 'gif') {
-						img
-							.decode()
-							.catch(() =>
-								console.error(`Failed to decode GIF: ${file.file.name}`)
-							)
+						img.decode().catch(() => {})
 					}
 				}
-				img.onerror = () =>
-					console.error(`Failed to load image: ${file.file.name}`)
+				img.onerror = () => {}
 			} else if (file.type === 'video') {
 				const video = document.createElement('video')
 				video.src = file.url
 				video.preload = 'auto'
-				video.playsInline = true // Для iOS
+				video.playsInline = true
 				video.onloadedmetadata = () => {
-					console.log(
-						`Video loaded: ${file.file.name}, width: ${video.videoWidth}, height: ${video.videoHeight}`
-					)
 					const scaled = scaleMedia(
 						video.videoWidth,
 						video.videoHeight,
@@ -239,10 +226,9 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 						fileType: 'video',
 						fileName: file.file.name,
 					})
-					video.play().catch(console.error)
+					video.play().catch(() => {})
 				}
-				video.onerror = () =>
-					console.error(`Failed to load video: ${file.file.name}`)
+				video.onerror = () => {}
 			} else if (
 				file.type === 'text' ||
 				file.type === 'quiz' ||
@@ -262,7 +248,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		})
 	}, [uploadedFiles, width, height, color, strokeWidth])
 
-	// Dropzone для drag&drop
 	const onDrop = useCallback(
 		(acceptedFiles: File[]) => {
 			acceptedFiles.forEach(file => {
@@ -277,9 +262,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 					const img = new window.Image()
 					img.src = url
 					img.onload = () => {
-						console.log(
-							`Image loaded: ${file.name}, width: ${img.width}, height: ${img.height}`
-						)
 						const scaled = scaleMedia(img.width, img.height, 400, 300)
 						setElements(prev => [
 							...prev,
@@ -300,24 +282,15 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 								rotation: 0,
 							},
 						])
-						if (file.type.includes('gif'))
-							img
-								.decode()
-								.catch(() =>
-									console.error(`Failed to decode GIF: ${file.name}`)
-								)
+						if (file.type.includes('gif')) img.decode().catch(() => {})
 					}
-					img.onerror = () =>
-						console.error(`Failed to load image: ${file.name}`)
+					img.onerror = () => {}
 				} else if (fileType === 'video') {
 					const video = document.createElement('video')
 					video.src = url
 					video.preload = 'auto'
 					video.playsInline = true
 					video.onloadedmetadata = () => {
-						console.log(
-							`Video loaded: ${file.name}, width: ${video.videoWidth}, height: ${video.videoHeight}`
-						)
 						const scaled = scaleMedia(
 							video.videoWidth,
 							video.videoHeight,
@@ -345,10 +318,9 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 								isMuted: false,
 							},
 						])
-						video.play().catch(console.error)
+						video.play().catch(() => {})
 					}
-					video.onerror = () =>
-						console.error(`Failed to load video: ${file.name}`)
+					video.onerror = () => {}
 				}
 			})
 		},
@@ -360,7 +332,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		accept: { 'image/*': [], 'video/*': [] },
 	})
 
-	// Нормализация (для negative sizes)
 	const normalizeElement = (el: WhiteboardElement): WhiteboardElement => {
 		let newEl = { ...el }
 		if (el.type === 'line' || el.type === 'arrow') {
@@ -408,7 +379,9 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		if (tool === 'select') {
 			const target = e.target
 			const stage = target.getStage()
-			if (target === stage || target === layerRef.current) setSelectedId(null)
+			if (stage && target === stage) {
+				setSelectedId(null)
+			}
 			return
 		}
 
@@ -426,7 +399,7 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 					text: newText,
 					color,
 					strokeWidth,
-					width: 200, // Initial for wrap
+					width: 200,
 					height: 50,
 					scaleX: 1,
 					scaleY: 1,
@@ -497,7 +470,7 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 				type: 'arrow',
 				x: pos.x,
 				y: pos.y,
-				points: [0, 0, 0, 0], // Relative
+				points: [0, 0, 0, 0],
 				color,
 				strokeWidth,
 				scaleX: 1,
@@ -523,8 +496,8 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 			newElement = {
 				id: uuidv4(),
 				type: 'circle',
-				x: pos.x, // Center
-				y: pos.y, // Center
+				x: pos.x,
+				y: pos.y,
 				radius: 0,
 				color,
 				fill: fillColor,
@@ -537,7 +510,7 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		setElements(prev => [...prev, newElement])
 	}
 
-	const handleMouseMove = (e: Konva.KonvaEventObject<MouseEvent>) => {
+	const handleMouseMove = (_e: Konva.KonvaEventObject<MouseEvent>) => {
 		if (!isDrawing) return
 		const point = getRelativePointerPosition()
 		if (elements.length === 0) return
@@ -590,7 +563,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		setIsDrawing(false)
 	}
 
-	// Common handlers для select/transform
 	const onSelect = useCallback((id: string) => {
 		setSelectedId(id)
 	}, [])
@@ -610,11 +582,9 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 	const onTransformEnd = useCallback(
 		(e: Konva.KonvaEventObject<Event>, id: string, el: WhiteboardElement) => {
 			const node = e.target
-			const stage = stageRef.current
 			const scaleX = node.scaleX()
 			const scaleY = node.scaleY()
 
-			// Reset scale to 1
 			node.scaleX(1)
 			node.scaleY(1)
 
@@ -632,36 +602,25 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 					}
 
 					if (['image', 'gif', 'video'].includes(el.type)) {
-						// Для медиа: update width/height
 						updated.width = Math.max((el.width || 0) * scaleX, 20)
 						updated.height = Math.max((el.height || 0) * scaleY, 20)
-						console.log(
-							`Transformed media ${el.id}: new width=${updated.width}, new height=${updated.height}`
-						)
 					} else if (el.type === 'rectangle' || el.type === 'sticky') {
-						// Для rect/sticky: update size
 						updated.width = Math.max((el.width || 0) * scaleX, 20)
 						updated.height = Math.max((el.height || 0) * scaleY, 20)
 					} else if (el.type === 'circle') {
-						// Для circle: update radius (average scale)
 						const scale = (scaleX + scaleY) / 2
 						updated.radius = Math.max((el.radius || 0) * scale, 10)
 					} else if (el.type === 'text') {
-						// Для text: update width и fontSize
 						updated.width = Math.max((el.width || 100) * scaleX, 50)
-						// Можно добавить fontSize: (el.fontSize || 20) * scaleY, но для простоты width
 					} else if (['line', 'arrow'].includes(el.type)) {
-						// Для line/arrow: scale points
 						if (el.points) {
-							const newPoints = el.points.map((p, i) => {
-								if (i % 2 === 0) return p * scaleX // x
-								return p * scaleY // y
-							})
+							const newPoints = el.points.map((p, i) =>
+								i % 2 === 0 ? p * scaleX : p * scaleY
+							)
 							updated.points = newPoints
 						}
 					}
 
-					// Для sticky: recursively update children
 					if (updated.children) {
 						updated.children = updated.children.map(child => {
 							let updatedChild = { ...child }
@@ -680,7 +639,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		[]
 	)
 
-	// Attach transformer
 	useEffect(() => {
 		if (selectedId && trRef.current && layerRef.current) {
 			const node = layerRef.current.findOne(`#${selectedId}`) as Konva.Node
@@ -697,10 +655,9 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		e: Konva.KonvaEventObject<MouseEvent | TouchEvent>
 	) => {
 		const stage = e.target.getStage()
-		if (e.target === stage) setSelectedId(null)
+		if (stage && e.target === stage) setSelectedId(null)
 	}
 
-	// Зум/пан
 	const handleWheel = useCallback(
 		(e: Konva.KonvaEventObject<WheelEvent>) => {
 			if (tool !== 'select') return
@@ -728,7 +685,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		[tool]
 	)
 
-	// Toggle play/pause/mute for video
 	const toggleVideoPlay = (id: string) => {
 		setElements(prev =>
 			prev.map(el =>
@@ -749,7 +705,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		)
 	}
 
-	// MediaElement (memoized, с preload для GIF и controls для video)
 	const MediaElement = React.memo(
 		({ element }: { element: WhiteboardElement }) => {
 			const [media, setMedia] = useState<
@@ -760,47 +715,39 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 
 			useEffect(() => {
 				isMounted.current = true
-				let newMedia: HTMLImageElement | HTMLVideoElement | null = null
+				let newMedia: HTMLImageElement | HTMLVideoElement
 
 				if (element.type === 'image' || element.type === 'gif') {
 					newMedia = new window.Image()
-					;(newMedia as HTMLImageElement).src = element.fileUrl || ''
-					;(newMedia as HTMLImageElement).onload = () => {
+					newMedia.src = element.fileUrl || ''
+					newMedia.onload = () => {
 						if (isMounted.current) {
-							console.log(
-								`Media loaded: ${element.fileName}, width: ${newMedia?.width}, height: ${newMedia?.height}`
-							)
 							setMedia(newMedia)
 							mediaRef.current = newMedia
 							if (element.type === 'gif') {
-								;(newMedia as HTMLImageElement).style.display = 'none'
-								;(newMedia as HTMLImageElement).style.display = 'block'
+								newMedia.style.display = 'none'
+								newMedia.style.display = 'block'
 							}
 						}
 					}
-					;(newMedia as HTMLImageElement).onerror = () =>
-						console.error(`Failed to load image: ${element.fileName}`)
+					newMedia.onerror = () => {}
 				} else if (element.type === 'video') {
 					newMedia = document.createElement('video')
-					;(newMedia as HTMLVideoElement).src = element.fileUrl || ''
-					;(newMedia as HTMLVideoElement).loop = true
-					;(newMedia as HTMLVideoElement).muted = element.isMuted ?? false
-					;(newMedia as HTMLVideoElement).playsInline = true
-					;(newMedia as HTMLVideoElement).preload = 'auto'
-					;(newMedia as HTMLVideoElement).onloadedmetadata = () => {
+					newMedia.src = element.fileUrl || ''
+					newMedia.loop = true
+					newMedia.muted = element.isMuted ?? false
+					newMedia.playsInline = true
+					newMedia.preload = 'auto'
+					newMedia.onloadedmetadata = () => {
 						if (isMounted.current) {
-							console.log(
-								`Video loaded: ${element.fileName}, width: ${newMedia?.width}, height: ${newMedia?.height}`
-							)
 							setMedia(newMedia)
 							mediaRef.current = newMedia
-							if (element.isPlaying ?? true) {
-								;(newMedia as HTMLVideoElement).play().catch(console.error)
+							if (element.isPlaying && newMedia instanceof HTMLVideoElement) {
+								newMedia.play().catch(() => {})
 							}
 						}
 					}
-					;(newMedia as HTMLVideoElement).onerror = () =>
-						console.error(`Failed to load video: ${element.fileName}`)
+					newMedia.onerror = () => {}
 				}
 
 				return () => {
@@ -813,7 +760,7 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 				if (mediaRef.current instanceof HTMLVideoElement) {
 					mediaRef.current.muted = element.isMuted ?? false
 					if (element.isPlaying) {
-						mediaRef.current.play().catch(console.error)
+						mediaRef.current.play().catch(() => {})
 					} else {
 						mediaRef.current.pause()
 					}
@@ -823,10 +770,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 			if (!media || !element.width || !element.height) {
 				return null
 			}
-
-			console.log(
-				`Rendering media ${element.id}: width=${element.width}, height=${element.height}`
-			)
 
 			return (
 				<Group
@@ -882,7 +825,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		}
 	)
 
-	// Render single element
 	const renderElement = (element: WhiteboardElement, isChild = false) => {
 		const commonProps = {
 			id: element.id,
@@ -894,8 +836,10 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 			draggable: tool === 'select' && !isChild,
 			onClick: () => !isChild && onSelect(element.id),
 			onTap: () => !isChild && onSelect(element.id),
-			onDragEnd: (e: any) => onDragEnd(e, element.id),
-			onTransformEnd: (e: any) => onTransformEnd(e, element.id, element),
+			onDragEnd: (e: Konva.KonvaEventObject<DragEvent>) =>
+				onDragEnd(e, element.id),
+			onTransformEnd: (e: Konva.KonvaEventObject<Event>) =>
+				onTransformEnd(e, element.id, element),
 		}
 
 		switch (element.type) {
@@ -912,7 +856,7 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 					/>
 				)
 			case 'rectangle':
-			case 'pdf': // Fallback as rect for materials
+			case 'pdf':
 				return (
 					<Rect
 						{...commonProps}
@@ -976,7 +920,6 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 		}
 	}
 
-	// Render all
 	const renderElements = () =>
 		elements.map(el => {
 			if (el.children && el.type === 'sticky') {
@@ -992,8 +935,10 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 							draggable: tool === 'select',
 							onClick: () => onSelect(el.id),
 							onTap: () => onSelect(el.id),
-							onDragEnd: (e: any) => onDragEnd(e, el.id),
-							onTransformEnd: (e: any) => onTransformEnd(e, el.id, el),
+							onDragEnd: (e: Konva.KonvaEventObject<DragEvent>) =>
+								onDragEnd(e, el.id),
+							onTransformEnd: (e: Konva.KonvaEventObject<Event>) =>
+								onTransformEnd(e, el.id, el),
 						}}
 					>
 						<Rect
@@ -1119,8 +1064,8 @@ const LocalWhiteboard: React.FC<LocalWhiteboardProps> = ({
 
 			<div className={styles.canvasContainer}>
 				<Stage
-					width={width} // Full width, no -40
-					height={height - 160} // Adjust for header/toolbar/status
+					width={width}
+					height={height - 160}
 					onMouseDown={handleMouseDown}
 					onMouseMove={handleMouseMove}
 					onMouseUp={handleMouseUp}
