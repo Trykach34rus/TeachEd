@@ -1,49 +1,51 @@
 .root {
-	width: 100%;
-	min-height: 1125px;
+	padding: 100px 5%;
 	background-color: #f7f7f7;
-	padding: 100px;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
-	gap: 24px;
-	box-sizing: border-box;
 	position: relative;
+	background-image: url('../../assets/Vector 35.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 100% ;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	div,
+	img {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
 	.title {
-		padding-top: 100px;
-		font-family: 'Geometria', sans-serif;
+		font-family: Geometria;
 		font-weight: 900;
 		font-size: 48px;
 		line-height: 100%;
 		text-transform: uppercase;
-		max-width: 100%;
-		margin: 0;
+		z-index: 50;
 	}
 
 	.container {
 		width: 1011px;
-
 		z-index: 50;
 		flex-shrink: 0;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-content: flex-start;
-		padding: 24px;
+
 		gap: 24px;
 		box-sizing: border-box;
 	}
 
-	.image {
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 10;
-		pointer-events: none;
-	}
 
 	.card {
 		width: calc(50% - 12px);
@@ -66,14 +68,19 @@
 	}
 
 	.cardTitle {
+		font-family: Mulish;
 		font-size: 24px;
-		font-weight: bold;
-		margin: 16px 0 8px 0;
+		font-weight: 600;
+
+		span {
+			color: #C3C3C3;
+		}
 	}
 
 	.cardDescription {
-		font-size: 14px;
-		line-height: 1.5;
+		font-family: Mulish;
+		font-size: 16px;
+		line-height: 130%;
 	}
 }
 

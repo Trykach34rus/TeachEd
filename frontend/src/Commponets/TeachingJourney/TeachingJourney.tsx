@@ -2,7 +2,6 @@ import image1 from '../../assets/Jorney-image1.png'
 import image2 from '../../assets/Jorney-image2.png'
 import image3 from '../../assets/Jorney-image3..png'
 import image4 from '../../assets/Jorney-image4.png'
-import vector35 from '../../assets/Vector 35.svg'
 import { JourneyItem } from '../../utils/type'
 import st from './TeachingJourney.module.scss'
 
@@ -46,7 +45,7 @@ export default function TeachingJourney({}: Props) {
 				Your Teaching <br />
 				Journey
 			</p>
-			<img src={vector35} alt='' className={st.image} />
+
 
 			<div className={st.container}>
 				{journeyObj.map(journey => (
@@ -58,7 +57,7 @@ export default function TeachingJourney({}: Props) {
 						/>
 						<div>
 							<h3 className={st.cardTitle}>
-								{journey.title} {journey.id}
+								{journey.title} <span> {journey.id} </span>
 							</h3>
 							<p className={st.cardDescription}>{journey.description}</p>
 						</div>

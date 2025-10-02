@@ -1,15 +1,44 @@
 .root {
-	width: 100%;
-	height: 1250px;
+	padding: 0 5%;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	background-color: #f7f7f7;
-	padding-top: 100px;
 
+
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	div,
+	img {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+
+	.container {
+		padding-top: 100px;
+		padding-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 120%;
+		background: url("../../assets/bg-contactCard.png") no-repeat;
+		background-size: cover;
+		background-position: calc(50% - 100px) calc(50% + 100px);
+	}
 	.title {
-		font-family: 'Geometria', sans-serif;
+		font-family: Geometria;
 		font-weight: 900;
 		font-size: 48px;
 		line-height: 100%;
@@ -27,11 +56,9 @@
 	}
 
 	.image {
-		margin-top: 56px;
-
+		margin-top: 48px;
 		img {
-			max-width: 100%;
-			height: auto;
+			width: 100%;
 		}
 	}
 }
