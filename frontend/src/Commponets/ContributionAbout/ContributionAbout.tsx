@@ -1,6 +1,6 @@
 import st from "./ContributionAbout.module.scss";
-import ContributionImg1 from "../../assets/personalImage1.png";
-import ContributionImg2 from "../../assets/personalImage2.png";
+import ContributionImg1 from "../../assets/personalImage1.svg";
+import ContributionImg2 from "../../assets/personalImage2.svg";
 
 export default function ContributionAbout() {
   return (

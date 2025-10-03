@@ -1,6 +1,7 @@
 .root {
-  padding: 166px 5% 0;
+  padding: 64px 5%;
   margin: 0 auto;
+  background-color: #ffffff;
 
   h1,
   h2,
@@ -15,5 +16,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .future {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 300px;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .futureImage {
+    display: flex;
+    flex: 1 1 400px;
+    min-width: 400px;
+    max-width: 800px;
+    border-radius: 24px;
+  }
+
+  .futureInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1 1 500px;
+    min-width: 500px;
+    max-width: 800px;
+  }
+
+  .futureTitle {
+    font-family: Geometria;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+  }
+
+  .futureText {
+    font-family: Mulish;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+  }
+
+  @media (max-width: 768px) {
+    .futureImage {
+      flex: 1 1 300px;
+      min-width: 300px;
+    }
   }
 }

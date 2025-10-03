@@ -1,5 +1,5 @@
 import st from "./FutureAbout.module.scss";
-import FutureImg from "../../assets/futureImage.png";
+import FutureImg from "../../assets/futureImage.svg";
 
 export default function FutureAbout() {
   return (
